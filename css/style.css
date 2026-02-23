@@ -1,0 +1,501 @@
+/* ==========================================
+   SMGM Website - Main Stylesheet
+   ========================================== */
+
+/* ==========================================
+   CSS Variables - Design System
+   ========================================== */
+:root {
+    /* Colors */
+    --color-terracotta: #E07A5F;
+    --color-red: #E63946;
+    --color-black: #1a1a1a;
+    --color-white: #ffffff;
+    --color-gray-light: #f5f5f5;
+    --color-gray-medium: #999999;
+    --color-gray-dark: #666666;
+    
+    /* Typography */
+    --font-primary: 'Noto Sans KR', sans-serif;
+    --font-size-base: 16px;
+    --font-size-h1: 36px;
+    --font-size-h2: 22px;
+    --font-size-h3: 12px;
+    --line-height-base: 1.6;
+    --line-height-heading: 1.3;
+    
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 48px;
+    --spacing-xl: 80px;
+    --spacing-xxl: 120px;
+    
+    /* Layout */
+    --max-width: 1200px;
+    --header-height: 80px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+
+    /* Red Sanctum Theme */
+    --color-glass-bg: rgba(255, 255, 255, 0.82);
+    --color-glass-border: rgba(255, 255, 255, 0.45);
+}
+
+/* ==========================================
+   Reset & Base Styles
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size-base);
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-black);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-terracotta);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: all var(--transition-base);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* ==========================================
+   Typography
+   ========================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--spacing-md);
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-red {
+    color: var(--color-red);
+}
+
+/* ==========================================
+   Layout Utilities
+   ========================================== */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-lg {
+    padding: var(--spacing-xxl) 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+/* ==========================================
+   Components - Badge
+   ========================================== */
+.badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--color-terracotta);
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-bottom: var(--spacing-md);
+}
+
+/* ==========================================
+   Components - Buttons
+   ========================================== */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-terracotta);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: #d66a4f;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-black);
+    border: 2px solid var(--color-black);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/* ==========================================
+   Components - Cards
+   ========================================== */
+.card {
+    background-color: var(--color-white);
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    transition: all var(--transition-base);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-title {
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.card-content {
+    color: var(--color-gray-dark);
+    line-height: 1.8;
+}
+
+/* ==========================================
+   Components - Box (for solutions, features)
+   ========================================== */
+.box {
+    background-color: var(--color-gray-light);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.box:hover {
+    background-color: var(--color-white);
+    border-color: var(--color-terracotta);
+    transform: translateY(-2px);
+}
+
+.box-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.box-subtitle {
+    font-size: 14px;
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.box-description {
+    font-size: 14px;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   Animation Utilities
+   ========================================== */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn var(--transition-slow) forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp var(--transition-slow) forwards;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   Responsive Design
+   ========================================== */
+@media (max-width: 1024px) {
+    :root {
+        --font-size-h1: 32px;
+        --font-size-h2: 20px;
+        --spacing-xl: 60px;
+        --spacing-xxl: 80px;
+    }
+    
+    .grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --font-size-h1: 28px;
+        --font-size-h2: 18px;
+        --spacing-lg: 40px;
+        --spacing-xl: 48px;
+        --spacing-xxl: 60px;
+    }
+    
+    .grid-5,
+    .grid-4,
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .section {
+        padding: var(--spacing-lg) 0;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-base: 14px;
+        --font-size-h1: 24px;
+        --font-size-h2: 16px;
+        --spacing-md: 16px;
+        --spacing-lg: 32px;
+    }
+}
+
+/* ==========================================
+   Utility Classes
+   ========================================== */
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.pt-sm { padding-top: var(--spacing-sm); }
+.pt-md { padding-top: var(--spacing-md); }
+.pt-lg { padding-top: var(--spacing-lg); }
+.pt-xl { padding-top: var(--spacing-xl); }
+
+.pb-sm { padding-bottom: var(--spacing-sm); }
+.pb-md { padding-bottom: var(--spacing-md); }
+.pb-lg { padding-bottom: var(--spacing-lg); }
+.pb-xl { padding-bottom: var(--spacing-xl); }
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+/* ==========================================
+   Red Sanctum — Sunlight Overlay
+   ========================================== */
+.sunlight-overlay {
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    width: 70%;
+    height: 120%;
+    background-image: linear-gradient(
+        138deg,
+        rgba(255, 218, 130, 0.52) 0%,
+        rgba(255, 190, 80, 0.28) 22%,
+        rgba(255, 210, 110, 0.14) 42%,
+        transparent 62%
+    );
+    transform-origin: top left;
+    pointer-events: none;
+    z-index: 1;
+    will-change: transform;
+}
+
+/* ==========================================
+   Red Sanctum — Preloader
+   ========================================== */
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: #111;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+}
+.preloader__dot {
+    width: 14px;
+    height: 14px;
+    background: var(--color-red);
+    border-radius: 50%;
+    transform-origin: center;
+}
+
+/* ==========================================
+   Red Sanctum — Floating Molecules
+   ========================================== */
+.molecules-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+.molecule-symbol {
+    position: absolute;
+    font-family: 'Noto Sans KR', monospace;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(224, 122, 95, 0.18);
+    animation: floatMolecule var(--float-dur, 9s) ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+}
+@keyframes floatMolecule {
+    0%, 100% { transform: translateY(0) rotate(var(--float-rot, 0deg)); }
+    50%       { transform: translateY(-22px) rotate(calc(var(--float-rot, 0deg) + 8deg)); }
+}
+
+/* ==========================================
+   Red Sanctum — Reduced Motion
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    .sunlight-overlay { display: none; }
+    .preloader        { display: none !important; }
+    .molecule-symbol  { animation: none; }
+    .hero__title-line { opacity: 1 !important; filter: none !important; }
+}
