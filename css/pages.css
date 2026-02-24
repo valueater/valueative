@@ -3611,9 +3611,10 @@
 }
 
 .value-proof-text {
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 600;
     color: var(--color-black);
-    line-height: 1.7;
+    line-height: 1.6;
     margin: 0;
 }
 
@@ -3629,3 +3630,54 @@
         font-size: 14px;
     }
 }
+
+/* ==========================================
+   GAIACURE — Soil Shift Keyword Chips
+   ========================================== */
+.soil-shift-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+.soil-shift-keywords span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-gray-dark);
+    background-color: #f5f0ee;
+    border: 1px solid #e0d8d5;
+    border-radius: 20px;
+    padding: 4px 12px;
+    white-space: nowrap;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   GAIACURE — Target User Meta Rows
+   ========================================== */
+.target-user-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+.target-user-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.tu-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-terracotta);
+    flex-shrink: 0;
+    min-width: 28px;
+}
+.tu-keywords {
+    font-size: 13px;
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+}
+
