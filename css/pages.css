@@ -20,7 +20,9 @@
     min-height: 560px;
     padding: var(--spacing-xxl) 0;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 /* Brand / News pages — brick wall background with dark overlay + white text */
