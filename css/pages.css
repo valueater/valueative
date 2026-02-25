@@ -3682,16 +3682,37 @@
 }
 
 /* ==========================================
-   COMPANY — Material Guide Bridge
+   COMPANY — Material Guide Bridge Banner
    ========================================== */
-.material-bridge {
+.material-bridge-banner {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, #f5ede8 0%, #fdf6f2 50%, #f5ede8 100%);
+    border-top: 1px solid rgba(224, 122, 95, 0.2);
+    border-bottom: 1px solid rgba(224, 122, 95, 0.2);
     text-align: center;
-    padding: var(--spacing-lg) 0 0;
-    color: var(--color-gray-dark);
-    font-size: 15px;
+}
+
+.material-bridge-banner__text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-black);
     line-height: 1.7;
-    border-top: 1px solid #eaeaea;
-    margin-top: var(--spacing-xl);
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    padding: 0 var(--spacing-lg);
+}
+
+.material-bridge-banner__text::before,
+.material-bridge-banner__text::after {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 2px;
+    background: var(--color-terracotta);
+    vertical-align: middle;
+    margin: 0 12px;
+    opacity: 0.7;
 }
 
 /* ==========================================
