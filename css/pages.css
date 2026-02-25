@@ -3681,3 +3681,323 @@
     line-height: 1.6;
 }
 
+/* ==========================================
+   COMPANY — Material Guide Bridge
+   ========================================== */
+.material-bridge {
+    text-align: center;
+    padding: var(--spacing-lg) 0 0;
+    color: var(--color-gray-dark);
+    font-size: 15px;
+    line-height: 1.7;
+    border-top: 1px solid #eaeaea;
+    margin-top: var(--spacing-xl);
+}
+
+/* ==========================================
+   COMPANY — Material Guide Sticky Subnav
+   ========================================== */
+.material-subnav-section {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 90;
+    padding: var(--spacing-md) 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.material-subnav__head {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.material-subnav__title {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--color-black);
+}
+
+.material-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.material-subnav__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid #e0e0e0;
+    background: var(--color-white);
+    color: var(--color-gray-dark);
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.material-subnav__link:hover {
+    border-color: var(--color-terracotta);
+    color: var(--color-terracotta);
+    transform: translateY(-1px);
+}
+
+.material-subnav__link.is-active {
+    background: var(--color-terracotta);
+    border-color: var(--color-terracotta);
+    color: var(--color-white);
+}
+
+/* ==========================================
+   COMPANY — Material Guide Sections
+   ========================================== */
+.material-guide-section {
+    scroll-margin-top: calc(var(--header-height) + 64px);
+}
+
+/* 섹션 교차 배경 */
+.material-guide-section:nth-child(even) {
+    background-color: var(--color-gray-light, #f9f6f3);
+}
+
+/* Static box — 클릭 불가 박스 공통 */
+.material-box.is-static {
+    cursor: default;
+    transition: none;
+    text-align: center;
+}
+
+.material-box.is-static:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================
+   COMPANY — Material Guide Inner Components
+   ========================================== */
+.material-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: var(--spacing-sm);
+}
+
+.material-key {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid #e0e0e0;
+    background: var(--color-white);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-gray-dark);
+}
+
+.material-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+}
+
+.material-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: rgba(224, 122, 95, 0.1);
+    color: var(--color-terracotta);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.material-metric {
+    font-weight: 700;
+    margin: 8px 0;
+    color: var(--color-terracotta);
+    font-size: 14px;
+}
+
+/* 적용처 리스트 */
+.material-list__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+    font-weight: 600;
+    color: var(--color-gray-dark);
+    font-size: 14px;
+    text-align: left;
+}
+
+.material-list__item::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-terracotta);
+    flex-shrink: 0;
+}
+
+/* Uses 섹션 카드 */
+.material-cards {
+    display: grid;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    text-align: left;
+}
+
+.material-mini {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.material-mini:last-child {
+    border-bottom: none;
+}
+
+.material-mini__title {
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: var(--color-black);
+}
+
+.material-mini__tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(224, 122, 95, 0.1);
+    color: var(--color-terracotta);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.material-mini__keys {
+    color: var(--color-gray-dark);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* Summary 테이블 */
+.material-table {
+    text-align: left;
+    overflow: hidden;
+}
+
+.material-table__row {
+    display: grid;
+    grid-template-columns: 100px 1.4fr 1fr;
+    gap: var(--spacing-md);
+    padding: 14px 0;
+    border-bottom: 1px solid #eaeaea;
+    align-items: center;
+    transition: background-color 0.15s ease;
+}
+
+.material-table__row:not(.material-table__head):hover {
+    background-color: rgba(224, 122, 95, 0.04);
+}
+
+.material-table__head {
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-gray-dark);
+    border-bottom: 2px solid var(--color-terracotta);
+    padding-bottom: 10px;
+}
+
+.material-table__row:not(.material-table__head) > div:first-child {
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+/* Summary CTA */
+.material-cta-inline {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-lg);
+}
+
+/* ==========================================
+   COMPANY — Material Guide Responsive
+   ========================================== */
+@media (max-width: 1024px) {
+    .material-guide-section.grid-4,
+    .material-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .material-subnav-section {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .material-subnav__head {
+        margin-bottom: 8px;
+    }
+
+    .material-table__row {
+        grid-template-columns: 72px 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .material-table__row > div:last-child {
+        grid-column: 2;
+        color: var(--color-gray-dark);
+        font-size: 13px;
+    }
+
+    .material-table__head > div:last-child {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .material-subnav__link {
+        padding: 7px 12px;
+        font-size: 12px;
+    }
+
+    .material-table__row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 12px 0;
+    }
+
+    .material-table__head {
+        display: none;
+    }
+
+    .material-table__row:not(.material-table__head) > div:first-child::after {
+        content: ' —';
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .material-subnav__link {
+        transition: none;
+        transform: none !important;
+    }
+
+    .material-table__row {
+        transition: none;
+    }
+}

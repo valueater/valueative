@@ -247,3 +247,35 @@ function isInViewport(element) {
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
+
+// ==========================================
+// Company — Material Guide Subnav Active State
+// ==========================================
+(function () {
+    const subnav = document.querySelector('.material-subnav');
+    if (!subnav) return;
+
+    const links = Array.from(subnav.querySelectorAll('a[href^="#"]'));
+    const targets = links
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean);
+
+    if (!targets.length) return;
+
+    const setActive = (id) => {
+        links.forEach(a => {
+            a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`);
+        });
+    };
+
+    const io = new IntersectionObserver((entries) => {
+        const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible && visible.target.id) setActive(visible.target.id);
+    }, { root: null, threshold: [0.2, 0.35, 0.5] });
+
+    targets.forEach(t => io.observe(t));
+
+    if (targets[0] && targets[0].id) setActive(targets[0].id);
+})();
