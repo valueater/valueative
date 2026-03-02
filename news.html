@@ -53,63 +53,78 @@
         
         <section class="section">
             <div class="container">
-                <div class="news-grid">
-                    <div class="news-card">
-                        <div class="news-card__image"></div>
-                        <div class="news-card__content">
-                            <span class="news-card__date">2025.03.15</span>
-                            <h3 class="news-card__title">SMGM, 친환경 소재 기술로 지속가능성 실현</h3>
-                            <p class="news-card__excerpt">에스엠골드마인의 CORElite-G 시스템이 국내 공공기관 프로젝트에 성공적으로 적용되며 친환경 소재 산업의 새로운 표준을 제시하고 있습니다.</p>
-                        </div>
+                <div class="news-grid" id="newsGrid">
+                    <div class="news-loading" id="newsLoading" style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #888;">
+                        불러오는 중...
                     </div>
-                    
-                    <div class="news-card">
-                        <div class="news-card__image"></div>
-                        <div class="news-card__content">
-                            <span class="news-card__date">2025.03.01</span>
-                            <h3 class="news-card__title">건설신기술 제998호 핵심 원자재 공급 확대</h3>
-                            <p class="news-card__excerpt">TechLane-G가 적용된 건설신기술이 국토교통부로부터 인증을 받으며 공공 도로 건설 프로젝트에 본격 공급을 시작합니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-card__image"></div>
-                        <div class="news-card__content">
-                            <span class="news-card__date">2025.02.20</span>
-                            <h3 class="news-card__title">친환경 맨발걷기길 조성 사업 확대</h3>
-                            <p class="news-card__excerpt">SoilAroma-G를 활용한 맨발걷기길이 전국 지자체에서 호응을 얻으며 웰니스 관광 인프라 구축에 기여하고 있습니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-card__image"></div>
-                        <div class="news-card__content">
-                            <span class="news-card__date">2025.02.10</span>
-                            <h3 class="news-card__title">학교 운동장 친환경 개선사업 참여</h3>
-                            <p class="news-card__excerpt">EcoField-G 솔루션이 수도권 초등학교 운동장 개선 사업에 채택되어 미세먼지 저감과 안전한 놀이 환경을 제공합니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-card__image"></div>
-                        <div class="news-card__content">
-                            <span class="news-card__date">2025.01.28</span>
-                            <h3 class="news-card__title">친환경 자전거도로 프로젝트 성공적 완료</h3>
-                            <p class="news-card__excerpt">EcoRide-G를 적용한 자전거 전용도로가 높은 내구성과 안전성을 입증하며 추가 프로젝트 수주로 이어지고 있습니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="news-card">
-                        <div class="news-card__image"></div>
-                        <div class="news-card__content">
-                            <span class="news-card__date">2025.01.15</span>
-                            <h3 class="news-card__title">농업 분야 토양개량제 GaiaCure-G 본격 출시</h3>
-                            <p class="news-card__excerpt">친환경 농업을 위한 토양개량제 GaiaCure-G가 출시되어 지속가능한 농업 생산성 향상에 기여할 것으로 기대됩니다.</p>
-                        </div>
-                    </div>
+                </div>
+                <div id="newsEmpty" style="display:none; text-align:center; padding: 60px 20px; color: #888;">
+                    <p style="font-size: 16px;">등록된 소식이 없습니다.</p>
                 </div>
             </div>
         </section>
+
+        <script>
+            // 뉴스 동적 로드 (Firebase Firestore)
+            document.addEventListener('DOMContentLoaded', function() {
+                if (typeof firebase === 'undefined' || !firebase.firestore) return;
+
+                var grid = document.getElementById('newsGrid');
+                var loading = document.getElementById('newsLoading');
+                var empty = document.getElementById('newsEmpty');
+
+                firebase.firestore().collection('news').orderBy('date', 'desc').get()
+                    .then(function(snapshot) {
+                        if (loading) loading.remove();
+
+                        if (snapshot.empty) {
+                            empty.style.display = 'block';
+                            return;
+                        }
+
+                        snapshot.forEach(function(doc) {
+                            var d = doc.data();
+                            var card = document.createElement('div');
+                            card.className = 'news-card';
+
+                            if (d.linkUrl) {
+                                card.style.cursor = 'pointer';
+                                card.addEventListener('click', function() {
+                                    window.open(d.linkUrl, '_blank', 'noopener');
+                                });
+                            }
+
+                            var imgHtml = d.imageUrl
+                                ? '<div class="news-card__image" style="background-image:url(\'' + d.imageUrl.replace(/'/g, "\\'") + '\'); background-size:cover; background-position:center;"></div>'
+                                : '<div class="news-card__image"></div>';
+
+                            var dateStr = d.date || '';
+                            if (dateStr && dateStr.includes('-')) {
+                                dateStr = dateStr.replace(/-/g, '.');
+                            }
+
+                            card.innerHTML = imgHtml +
+                                '<div class="news-card__content">' +
+                                    '<span class="news-card__date">' + escapeHtml(dateStr) + '</span>' +
+                                    '<h3 class="news-card__title">' + escapeHtml(d.title || '') + '</h3>' +
+                                    '<p class="news-card__excerpt">' + escapeHtml(d.excerpt || '') + '</p>' +
+                                '</div>';
+
+                            grid.appendChild(card);
+                        });
+                    })
+                    .catch(function(err) {
+                        console.error('뉴스 로드 실패:', err);
+                        if (loading) loading.textContent = '뉴스를 불러올 수 없습니다.';
+                    });
+
+                function escapeHtml(str) {
+                    var div = document.createElement('div');
+                    div.textContent = str;
+                    return div.innerHTML;
+                }
+            });
+        </script>
         
         <section class="section cta-section">
             <div class="container">
@@ -163,6 +178,11 @@
         </div>
     </div>
     
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/popup.js"></script>
     <!-- GSAP + ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>

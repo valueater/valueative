@@ -269,35 +269,68 @@
                     </button>
                 </div>
                 <div class="news-content" id="newsContent">
-                    <div class="grid grid-3 mt-lg">
-                        <!-- News Card 1 -->
-                        <div class="card">
-                            <div class="card-image-placeholder"></div>
-                            <span class="card-date">2025.03.15</span>
-                            <h3 class="card-title">SMGM, 친환경 소재 기술로 지속가능성 실현</h3>
-                            <p class="card-content">에스엠골드마인의 CORElite-G 시스템이 국내 공공기관 프로젝트에 성공적으로 적용되며...</p>
-                        </div>
-                        
-                        <!-- News Card 2 -->
-                        <div class="card">
-                            <div class="card-image-placeholder"></div>
-                            <span class="card-date">2025.03.01</span>
-                            <h3 class="card-title">건설신기술 제998호 핵심 원자재 공급 확대</h3>
-                            <p class="card-content">TechLane-G가 적용된 건설신기술이 국토교통부로부터 인증을 받으며...</p>
-                        </div>
-                        
-                        <!-- News Card 3 -->
-                        <div class="card">
-                            <div class="card-image-placeholder"></div>
-                            <span class="card-date">2025.02.20</span>
-                            <h3 class="card-title">친환경 맨발걷기길 조성 사업 확대</h3>
-                            <p class="card-content">SoilAroma-G를 활용한 맨발걷기길이 전국 지자체에서 호응을 얻으며...</p>
-                        </div>
+                    <div class="grid grid-3 mt-lg" id="indexNewsGrid">
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; color: #888;">불러오는 중...</div>
                     </div>
                     <div class="text-center mt-lg">
                         <a href="news.html" class="btn btn-outline">모두 보기</a>
                     </div>
                 </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        if (typeof firebase === 'undefined' || !firebase.firestore) return;
+                        var grid = document.getElementById('indexNewsGrid');
+                        if (!grid) return;
+
+                        firebase.firestore().collection('news').orderBy('date', 'desc').limit(3).get()
+                            .then(function(snapshot) {
+                                grid.innerHTML = '';
+                                if (snapshot.empty) {
+                                    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#888;">등록된 소식이 없습니다.</div>';
+                                    return;
+                                }
+                                snapshot.forEach(function(doc) {
+                                    var d = doc.data();
+                                    var card = document.createElement('div');
+                                    card.className = 'card';
+
+                                    if (d.linkUrl) {
+                                        card.style.cursor = 'pointer';
+                                        card.addEventListener('click', function() {
+                                            window.open(d.linkUrl, '_blank', 'noopener');
+                                        });
+                                    }
+
+                                    var imgHtml = d.imageUrl
+                                        ? '<div class="card-image-placeholder" style="background-image:url(\'' + d.imageUrl.replace(/'/g, "\\'") + '\');background-size:cover;background-position:center;"></div>'
+                                        : '<div class="card-image-placeholder"></div>';
+
+                                    var dateStr = d.date || '';
+                                    if (dateStr && dateStr.includes('-')) dateStr = dateStr.replace(/-/g, '.');
+
+                                    var div = document.createElement('div');
+                                    div.textContent = d.title || '';
+                                    var safeTitle = div.innerHTML;
+                                    div.textContent = d.excerpt || '';
+                                    var safeExcerpt = div.innerHTML;
+                                    div.textContent = dateStr;
+                                    var safeDate = div.innerHTML;
+
+                                    card.innerHTML = imgHtml +
+                                        '<span class="card-date">' + safeDate + '</span>' +
+                                        '<h3 class="card-title">' + safeTitle + '</h3>' +
+                                        '<p class="card-content">' + safeExcerpt + '</p>';
+
+                                    grid.appendChild(card);
+                                });
+                            })
+                            .catch(function(err) {
+                                console.error('메인 뉴스 로드 실패:', err);
+                                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#888;">소식을 불러올 수 없습니다.</div>';
+                            });
+                    });
+                </script>
             </div>
         </section>
         
@@ -388,6 +421,11 @@
     </div>
     
     <!-- JavaScript -->
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/popup.js"></script>
     <!-- GSAP + ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>

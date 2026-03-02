@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Dashboard | SMGM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="admin-topbar">
+        <div>
+            <a href="../index.html" class="admin-topbar__logo">SM<span>GM</span></a>
+            <span class="admin-topbar__badge">ADMIN</span>
+        </div>
+        <div class="admin-topbar__right">
+            <span class="admin-topbar__user" id="userEmail"></span>
+            <button class="admin-topbar__logout" id="logoutBtn">로그아웃</button>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="news">뉴스 관리</button>
+        <button class="admin-tab" data-tab="contacts">문의 관리 <span class="admin-tab__badge" id="contactBadge" style="display:none;">0</span></button>
+        <button class="admin-tab" data-tab="popups">팝업 관리</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+
+        <!-- ========== NEWS PANEL ========== -->
+        <div id="panel-news" class="admin-panel active">
+            <div class="admin-toolbar">
+                <h2 class="admin-toolbar__title">뉴스 관리</h2>
+                <button class="btn btn-primary" id="addNewsBtn">+ 새 뉴스 작성</button>
+            </div>
+
+            <div id="newsEmpty" class="admin-empty" style="display:none;">
+                <div class="admin-empty__icon">📰</div>
+                <p class="admin-empty__text">등록된 뉴스가 없습니다.<br>첫 번째 뉴스를 작성해보세요.</p>
+            </div>
+
+            <div class="admin-table-wrap news-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>제목</th>
+                            <th>날짜</th>
+                            <th class="hide-mobile">요약</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody id="newsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== CONTACTS PANEL ========== -->
+        <div id="panel-contacts" class="admin-panel">
+            <div class="admin-toolbar">
+                <h2 class="admin-toolbar__title">문의 관리</h2>
+            </div>
+
+            <div id="contactEmpty" class="admin-empty" style="display:none;">
+                <div class="admin-empty__icon">📬</div>
+                <p class="admin-empty__text">접수된 문의가 없습니다.</p>
+            </div>
+
+            <div class="admin-table-wrap contact-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>상태</th>
+                            <th>이름</th>
+                            <th class="hide-mobile">관심 솔루션</th>
+                            <th class="hide-mobile">접수일</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== POPUPS PANEL ========== -->
+        <div id="panel-popups" class="admin-panel">
+            <div class="admin-toolbar">
+                <h2 class="admin-toolbar__title">팝업 관리</h2>
+                <button class="btn btn-primary" id="addPopupBtn">+ 새 팝업 생성</button>
+            </div>
+
+            <div id="popupEmpty" class="admin-empty" style="display:none;">
+                <div class="admin-empty__icon">🪟</div>
+                <p class="admin-empty__text">등록된 팝업이 없습니다.<br>새 팝업을 생성해보세요.</p>
+            </div>
+
+            <div class="admin-table-wrap popup-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>상태</th>
+                            <th>제목</th>
+                            <th class="hide-mobile">기간</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody id="popupTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== NEWS MODAL ========== -->
+    <div id="newsModal" class="admin-modal">
+        <div class="admin-modal__content">
+            <div class="admin-modal__header">
+                <h3 class="admin-modal__title" id="newsModalTitle">뉴스 작성</h3>
+                <button class="admin-modal__close">&times;</button>
+            </div>
+            <form id="newsForm">
+                <div class="admin-form-group">
+                    <label for="newsTitle">제목</label>
+                    <input type="text" id="newsTitle" required>
+                </div>
+                <div class="admin-form-group">
+                    <label for="newsDate">날짜</label>
+                    <input type="date" id="newsDate" required>
+                </div>
+                <div class="admin-form-group">
+                    <label for="newsExcerpt">요약 (뉴스 카드에 표시)</label>
+                    <textarea id="newsExcerpt" rows="3" required></textarea>
+                </div>
+                <div class="admin-form-group">
+                    <label for="newsLinkUrl">기사 링크 URL</label>
+                    <input type="url" id="newsLinkUrl" placeholder="https://example.com/article" required>
+                </div>
+                <div class="admin-form-group">
+                    <label for="newsImageUrl">썸네일 이미지 URL (선택사항)</label>
+                    <input type="url" id="newsImageUrl" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="admin-form-actions">
+                    <button type="button" class="btn btn-secondary admin-modal__close">취소</button>
+                    <button type="submit" class="btn btn-primary">저장</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== CONTACT DETAIL MODAL ========== -->
+    <div id="contactModal" class="admin-modal">
+        <div class="admin-modal__content">
+            <div class="admin-modal__header">
+                <h3 class="admin-modal__title">문의 상세</h3>
+                <button class="admin-modal__close">&times;</button>
+            </div>
+            <div class="admin-detail" id="contactDetail"></div>
+        </div>
+    </div>
+
+    <!-- ========== POPUP MODAL ========== -->
+    <div id="popupModal" class="admin-modal">
+        <div class="admin-modal__content">
+            <div class="admin-modal__header">
+                <h3 class="admin-modal__title" id="popupModalTitle">팝업 생성</h3>
+                <button class="admin-modal__close">&times;</button>
+            </div>
+            <form id="popupForm">
+                <div class="admin-form-group">
+                    <label for="popupTitle">팝업 제목</label>
+                    <input type="text" id="popupTitle" required>
+                </div>
+                <div class="admin-form-group">
+                    <label for="popupBody">본문 내용 (HTML 가능)</label>
+                    <textarea id="popupBody" rows="5"></textarea>
+                </div>
+                <div class="admin-form-group">
+                    <label for="popupImageUrl">이미지 URL (선택사항)</label>
+                    <input type="url" id="popupImageUrl" placeholder="https://example.com/popup.jpg">
+                </div>
+                <div class="admin-form-group">
+                    <label for="popupLinkUrl">클릭 시 이동 링크 (선택사항)</label>
+                    <input type="url" id="popupLinkUrl" placeholder="https://example.com">
+                </div>
+                <div class="admin-form-row">
+                    <div class="admin-form-group">
+                        <label for="popupStartDate">시작일</label>
+                        <input type="date" id="popupStartDate">
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="popupEndDate">종료일</label>
+                        <input type="date" id="popupEndDate">
+                    </div>
+                </div>
+                <div class="admin-form-group">
+                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                        <input type="checkbox" id="popupIsActive" checked>
+                        활성 상태
+                    </label>
+                </div>
+                <div class="admin-form-actions">
+                    <button type="button" class="btn btn-secondary admin-modal__close">취소</button>
+                    <button type="submit" class="btn btn-primary">저장</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

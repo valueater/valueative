@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Login | SMGM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 48px 40px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .login-logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .login-logo span {
+            color: #E63946;
+        }
+
+        .login-subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 36px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #E07A5F;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: #E07A5F;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+
+        .login-btn:hover {
+            background: #c96a52;
+        }
+
+        .login-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .login-error {
+            color: #E63946;
+            font-size: 13px;
+            margin-top: 12px;
+            min-height: 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 24px;
+            font-size: 13px;
+            color: #888;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: #555;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                margin: 16px;
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">SM<span>GM</span></div>
+        <p class="login-subtitle">관리자 로그인</p>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label class="form-label" for="email">이메일</label>
+                <input type="email" id="email" class="form-input" placeholder="admin@smgm.co.kr" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="password">비밀번호</label>
+                <input type="password" id="password" class="form-input" placeholder="비밀번호 입력" required>
+            </div>
+            <button type="submit" class="login-btn" id="loginBtn">로그인</button>
+            <div class="login-error" id="loginError"></div>
+        </form>
+
+        <a href="../index.html" class="back-link">← 메인 사이트로 돌아가기</a>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script>
+        var firebaseAuth = firebase.auth();
+        var loginForm = document.getElementById('loginForm');
+        var loginBtn = document.getElementById('loginBtn');
+        var loginError = document.getElementById('loginError');
+
+        // 이미 로그인된 경우 대시보드로 이동
+        firebaseAuth.onAuthStateChanged(function(user) {
+            if (user) {
+                window.location.href = 'index.html';
+            }
+        });
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            loginError.textContent = '';
+            loginBtn.disabled = true;
+            loginBtn.textContent = '로그인 중...';
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                .then(function() {
+                    window.location.href = 'index.html';
+                })
+                .catch(function(error) {
+                    var msg = '로그인에 실패했습니다.';
+                    if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+                        msg = '이메일 또는 비밀번호가 올바르지 않습니다.';
+                    } else if (error.code === 'auth/too-many-requests') {
+                        msg = '너무 많은 시도가 있었습니다. 잠시 후 다시 시도하세요.';
+                    }
+                    loginError.textContent = msg;
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = '로그인';
+                });
+        });
+    </script>
+</body>
+</html>

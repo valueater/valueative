@@ -107,26 +107,58 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
+            var submitBtn = contactForm.querySelector('button[type="submit"], .form__submit');
+            var originalText = submitBtn ? submitBtn.textContent : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = '전송 중...';
+            }
+
             // Get form data
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
                 solution: document.getElementById('solution').value,
-                message: document.getElementById('message').value
+                message: document.getElementById('message').value,
+                isRead: false,
+                createdAt: typeof firebase !== 'undefined' && firebase.firestore
+                    ? firebase.firestore.FieldValue.serverTimestamp()
+                    : new Date()
             };
-            
-            // Here you would normally send the data to a server
-            console.log('Form submitted:', formData);
-            
-            // Show success message
-            alert('문의가 성공적으로 전송되었습니다.\n담당자가 빠른 시일 내에 연락드리겠습니다.');
-            
-            // Close modal and reset form
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-            contactForm.reset();
+
+            // Firestore에 저장 (Firebase 로드된 경우)
+            if (typeof firebase !== 'undefined' && firebase.firestore) {
+                firebase.firestore().collection('contacts').add(formData)
+                    .then(function() {
+                        alert('문의가 성공적으로 전송되었습니다.\n담당자가 빠른 시일 내에 연락드리겠습니다.');
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                        contactForm.reset();
+                    })
+                    .catch(function(err) {
+                        console.error('문의 저장 실패:', err);
+                        alert('전송에 실패했습니다. 다시 시도해주세요.');
+                    })
+                    .finally(function() {
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = originalText;
+                        }
+                    });
+            } else {
+                // Firebase 미설정 시 기존 동작
+                console.log('Form submitted:', formData);
+                alert('문의가 성공적으로 전송되었습니다.\n담당자가 빠른 시일 내에 연락드리겠습니다.');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                contactForm.reset();
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            }
         });
     }
     
