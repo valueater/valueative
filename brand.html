@@ -186,7 +186,7 @@
 
                     <!-- 오른쪽: 상세 패널 -->
                     <div class="solution-explorer__panel">
-                        <div class="solution-explorer__bg" id="explorerBg" style="background-image: url('img-soilaroma.jpg');"></div>
+                        <div class="solution-explorer__bg" id="explorerBg" style="background-image: url('맨발걷기길 히어로 이미지.png');"></div>
 
                         <!-- SoilAroma-G -->
                         <div class="solution-explorer__pane active" data-pane="soilaroma">
@@ -337,24 +337,27 @@
         </div>
     </footer>
     
-    <div id="contactModal" class="modal">
+    <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
         <div class="modal__content">
             <div class="modal__header">
-                <h2 class="modal__title">Contact</h2>
+                <h2 class="modal__title" id="contactModalTitle">Contact</h2>
                 <span class="modal__close">&times;</span>
             </div>
             <form id="contactForm" class="modal__form">
                 <div class="form__group">
                     <label for="name" class="form__label">이름 / 담당자</label>
                     <input type="text" id="name" class="form__input" required>
+                    <p class="form__error-text"></p>
                 </div>
                 <div class="form__group">
                     <label for="email" class="form__label">이메일</label>
                     <input type="email" id="email" class="form__input" required>
+                    <p class="form__error-text"></p>
                 </div>
                 <div class="form__group">
                     <label for="phone" class="form__label">연락처</label>
                     <input type="tel" id="phone" class="form__input" required>
+                    <p class="form__error-text"></p>
                 </div>
                 <div class="form__group">
                     <label for="solution" class="form__label">관심 솔루션</label>
@@ -367,10 +370,12 @@
                         <option value="GaiaCure-G">GaiaCure-G (흙살림e지)</option>
                         <option value="기타">기타</option>
                     </select>
+                    <p class="form__error-text"></p>
                 </div>
                 <div class="form__group">
                     <label for="message" class="form__label">문의 내용</label>
                     <textarea id="message" class="form__textarea" rows="5" required></textarea>
+                    <p class="form__error-text"></p>
                     <span class="form__placeholder">프로젝트 규모, 예상 일정, 기타 문의사항을 자유롭게 작성해주세요.</span>
                 </div>
                 <button type="submit" class="form__submit">Touch Us</button>
@@ -385,11 +390,11 @@
         var panes = document.querySelectorAll('.solution-explorer__pane');
         var bg    = document.getElementById('explorerBg');
         var imgs  = {
-            soilaroma: "img-soilaroma.jpg",
+            soilaroma: "맨발걷기길 히어로 이미지.png",
             ecoride:   "img-ecoride.jpg",
             techlane:  "img-techlane.jpg",
             ecofield:  "img-ecofield.jpg",
-            gaiacure:  "img-gaiacure.jpg"
+            gaiacure:  "img-gaiacure-hero.png"
         };
 
         items.forEach(function (item) {
