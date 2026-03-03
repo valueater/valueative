@@ -162,8 +162,8 @@
 
 .intelligence-item:hover {
     border-color: var(--color-terracotta);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    background-color: var(--color-muted, #f4f4f5);
+    box-shadow: var(--shadow-sm);
 }
 
 .intelligence-item__number {
@@ -413,8 +413,8 @@
 
 .benefit-card:hover {
     border-color: var(--color-terracotta);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    background-color: var(--color-muted, #f4f4f5);
+    box-shadow: var(--shadow-sm);
 }
 
 .benefit-card__category {
@@ -880,8 +880,8 @@
 
 .core-benefit-card:hover {
     border-color: var(--color-terracotta);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    background-color: var(--color-muted, #f4f4f5);
+    box-shadow: var(--shadow-sm);
 }
 
 .core-benefit-card__title {
@@ -2451,46 +2451,13 @@
     margin-bottom: var(--spacing-lg);
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
-}
-
-.feature-box {
-    background-color: var(--color-white);
-    border: 1px solid #e0e0e0;
-    border-left: 4px solid var(--color-terracotta);
-    border-radius: 4px 12px 12px 4px;
-    padding: var(--spacing-xl);
-    text-align: left;
-    transition: all var(--transition-base);
-}
-
-.feature-box:hover {
-    border-color: var(--color-terracotta);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-
-.feature-box__title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: var(--spacing-sm);
-}
-
-.feature-box__subtitle {
-    font-size: 20px;
-    color: var(--color-terracotta);
-    font-weight: 600;
-    margin-bottom: var(--spacing-md);
-}
-
-.feature-box__description {
+/* Hero 태그라인 */
+.company-hero__tagline {
     font-size: 15px;
-    color: var(--color-gray-dark);
-    line-height: 1.8;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: var(--spacing-sm);
+    letter-spacing: 0.02em;
 }
 
 /* ==========================================
@@ -3685,446 +3652,753 @@
 /* ==========================================
    COMPANY — Material Guide Bridge Banner
    ========================================== */
-.material-bridge-banner {
-    padding: var(--spacing-xl) 0;
-    background: linear-gradient(135deg, #f5ede8 0%, #fdf6f2 50%, #f5ede8 100%);
-    border-top: 1px solid rgba(224, 122, 95, 0.2);
-    border-bottom: 1px solid rgba(224, 122, 95, 0.2);
-    text-align: center;
-}
-
-.material-bridge-banner__text {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--color-black);
-    line-height: 1.7;
-    margin: 0;
-    position: relative;
-    display: inline-block;
-    padding: 0 var(--spacing-lg);
-}
-
-.material-bridge-banner__text::before,
-.material-bridge-banner__text::after {
-    content: '';
-    display: inline-block;
-    width: 32px;
-    height: 2px;
-    background: var(--color-terracotta);
-    vertical-align: middle;
-    margin: 0 12px;
-    opacity: 0.7;
-}
-
 /* ==========================================
-   COMPANY — Material Guide Sticky Subnav
+   COMPANY PAGE — New Sections (리뉴얼)
    ========================================== */
-.material-subnav-section {
-    position: sticky;
-    top: var(--header-height);
-    z-index: 90;
-    padding: var(--spacing-md) 0;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-}
 
-.material-subnav__head {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
-}
-
-.material-subnav__title {
-    font-weight: 700;
-    font-size: 15px;
-    color: var(--color-black);
-}
-
-.material-subnav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.material-subnav__link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 16px;
-    border-radius: 999px;
-    border: 1px solid #e0e0e0;
-    background: var(--color-white);
-    color: var(--color-gray-dark);
-    font-weight: 600;
-    font-size: 13px;
-    text-decoration: none;
-    transition: all var(--transition-base);
-}
-
-.material-subnav__link:hover {
-    border-color: var(--color-terracotta);
-    color: var(--color-terracotta);
-    transform: translateY(-1px);
-}
-
-.material-subnav__link.is-active {
-    background: var(--color-terracotta);
-    border-color: var(--color-terracotta);
-    color: var(--color-white);
-}
-
-/* ==========================================
-   COMPANY — Material Guide Sections
-   ========================================== */
-.material-guide-section {
-    scroll-margin-top: calc(var(--header-height) + 64px);
-}
-
-/* 섹션 교차 배경 */
-.material-guide-section:nth-child(even) {
+/* --- Section 2: 적토이암 이해 --- */
+.cp-understand {
     background-color: var(--color-gray-light, #f9f6f3);
 }
 
-/* Static box — 클릭 불가 박스 공통 */
-.material-box.is-static {
-    cursor: default;
-    transition: none;
-}
-
-.material-box.is-static:hover {
-    transform: none;
-    box-shadow: var(--shadow-sm);
-}
-
-/* ==========================================
-   COMPANY — Material Guide Inner Components
-   ========================================== */
-.material-keywords {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-top: var(--spacing-sm);
-}
-
-.material-key {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 999px;
-    border: 1px solid #e0e0e0;
-    background: var(--color-white);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-gray-dark);
-}
-
-.material-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-top: var(--spacing-md);
-}
-
-.material-tag {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 6px;
-    background: rgba(224, 122, 95, 0.1);
-    color: var(--color-terracotta);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-}
-
-.material-metric {
-    font-weight: 700;
-    margin: 8px 0;
-    color: var(--color-terracotta);
-    font-size: 14px;
-}
-
-/* 적용처 리스트 */
-.material-list__item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 0;
-    border-bottom: 1px solid #eaeaea;
-    font-weight: 600;
-    color: var(--color-gray-dark);
-    font-size: 14px;
-    text-align: left;
-}
-
-.material-list__item::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--color-terracotta);
-    flex-shrink: 0;
-}
-
-/* Uses 섹션 카드 */
-.material-cards {
-    display: grid;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-sm);
-    text-align: left;
-}
-
-.material-mini {
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid #eaeaea;
-}
-
-.material-mini:last-child {
-    border-bottom: none;
-}
-
-.material-mini__title {
-    font-weight: 800;
-    font-size: 15px;
-    margin-bottom: 6px;
-    color: var(--color-black);
-}
-
-.material-mini__tag {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(224, 122, 95, 0.1);
-    color: var(--color-terracotta);
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.material-mini__keys {
-    color: var(--color-gray-dark);
-    font-weight: 600;
-    font-size: 13px;
-}
-
-/* Summary 테이블 — <table> 기반 */
-.mg-summary-table-wrap {
+/* 정의 도표 */
+.definition-table {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
-}
-
-.mg-summary-table {
-    width: 100%;
-    border-collapse: collapse;
     background: var(--color-white);
-    font-size: 15px;
 }
 
-.mg-summary-table thead tr {
-    background: var(--color-black);
-}
-
-.mg-summary-table thead th {
-    padding: 16px 24px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.6);
-    text-align: left;
-}
-
-.mg-summary-table thead th:first-child {
-    width: 120px;
-    color: var(--color-terracotta);
-}
-
-.mg-summary-table tbody tr {
+.definition-table__row {
+    display: grid;
+    grid-template-columns: 120px 1fr 48px;
+    align-items: center;
     border-bottom: 1px solid #f0ece9;
-    transition: background-color 0.18s ease, border-left-color 0.18s ease;
-    border-left: 3px solid transparent;
-    cursor: default;
 }
 
-.mg-summary-table tbody tr:last-child {
+.definition-table__row:last-child {
     border-bottom: none;
 }
 
-.mg-summary-table tbody tr:hover {
-    background-color: #fdf7f5;
-    border-left-color: var(--color-terracotta);
+.definition-table__label {
+    padding: 18px 20px;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--color-black);
+    background: #fdf7f5;
+    border-right: 3px solid var(--color-terracotta);
 }
 
-.mg-summary-table td {
-    padding: 18px 24px;
-    vertical-align: middle;
-    color: var(--color-gray-dark);
+.definition-table__value {
+    padding: 18px 20px;
     font-size: 14px;
+    color: var(--color-gray-dark);
     line-height: 1.6;
 }
 
-.mg-summary-table__cat {
-    font-weight: 800;
-    font-size: 13px !important;
-    color: var(--color-black) !important;
-    white-space: nowrap;
+.definition-table__icon {
+    padding: 18px 12px;
+    font-size: 20px;
+    text-align: center;
 }
 
-.mg-summary-table tbody tr:hover .mg-summary-table__cat {
-    color: var(--color-terracotta) !important;
-}
-
-.mg-summary-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 999px;
-    background: rgba(224, 122, 95, 0.1);
-    color: var(--color-terracotta);
-    font-size: 13px;
-    font-weight: 700;
-    white-space: nowrap;
-    transition: background-color 0.18s ease;
-}
-
-.mg-summary-table tbody tr:hover .mg-summary-badge {
-    background: rgba(224, 122, 95, 0.2);
-}
-
-/* Summary CTA */
-.material-cta-inline {
+/* 생산 과정 플로우차트 */
+.process-flow {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: var(--spacing-md);
+    gap: 0;
     flex-wrap: wrap;
     margin-top: var(--spacing-lg);
 }
 
+.process-step {
+    background: var(--color-white);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    text-align: center;
+    min-width: 140px;
+    transition: border-color var(--transition-base);
+}
+
+.process-step:hover {
+    border-color: var(--color-terracotta);
+}
+
+.process-step__number {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-terracotta);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+}
+
+.process-step__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 4px;
+}
+
+.process-step__desc {
+    font-size: 13px;
+    color: var(--color-gray-dark);
+}
+
+.process-arrow {
+    font-size: 24px;
+    color: var(--color-terracotta);
+    font-weight: 700;
+    padding: 0 var(--spacing-sm);
+}
+
+/* --- Section 3: 성분·입도 & 물성 데이터 --- */
+.cp-data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+.cp-data-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+.cp-data-card__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+/* 히스토그램 */
+.histogram {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: var(--spacing-md);
+    height: 220px;
+    padding-bottom: var(--spacing-md);
+}
+
+.histogram__bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.histogram__value {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-terracotta);
+    margin-bottom: 6px;
+}
+
+.histogram__bar {
+    width: 100%;
+    max-width: 48px;
+    background: linear-gradient(180deg, var(--color-terracotta) 0%, rgba(224, 122, 95, 0.6) 100%);
+    border-radius: 6px 6px 0 0;
+    min-height: 4px;
+    transition: height 0.8s ease;
+}
+
+.histogram__label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-gray-dark);
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Radar Chart (성분) */
+.radar-chart {
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.radar-chart svg {
+    width: 100%;
+    height: auto;
+}
+
+/* --- Section 4: 현장 성능 비교 --- */
+.cp-performance {
+    background-color: var(--color-gray-light, #f9f6f3);
+}
+
+.compare-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.compare-row {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+}
+
+.compare-row__label {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-md);
+}
+
+.compare-row__bars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.compare-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.compare-bar__name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-gray-dark);
+    min-width: 64px;
+    flex-shrink: 0;
+}
+
+.compare-bar__track {
+    flex: 1;
+    height: 28px;
+    background: #f0ece9;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.compare-bar__fill {
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-white);
+    transition: width 0.8s ease;
+}
+
+.compare-bar__fill--primary {
+    background: linear-gradient(90deg, var(--color-terracotta) 0%, #c96a4f 100%);
+}
+
+.compare-bar__fill--gray {
+    background: linear-gradient(90deg, #b0b0b0 0%, #999 100%);
+}
+
+/* --- Section 5: 규격 체계 트리맵 --- */
+.spec-tree {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.spec-tree__root {
+    display: inline-block;
+    background: var(--color-black);
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+}
+
+.spec-tree__connector {
+    width: 2px;
+    height: 32px;
+    background: #ccc;
+    margin: 0 auto;
+}
+
+.spec-tree__branches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    position: relative;
+}
+
+.spec-tree__branches::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: #ccc;
+}
+
+.spec-tree__branch {
+    position: relative;
+    padding-top: var(--spacing-lg);
+}
+
+.spec-tree__branch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: var(--spacing-lg);
+    background: #ccc;
+}
+
+.spec-tree__leaf {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    text-align: left;
+}
+
+.spec-tree__branch--g .spec-tree__leaf {
+    border-top: 4px solid var(--color-terracotta);
+}
+
+.spec-tree__branch--ge .spec-tree__leaf {
+    border-top: 4px solid #5C3D2E;
+}
+
+.spec-tree__leaf-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 8px;
+}
+
+.spec-tree__branch--g .spec-tree__leaf-title {
+    color: var(--color-terracotta);
+}
+
+.spec-tree__branch--ge .spec-tree__leaf-title {
+    color: #5C3D2E;
+}
+
+.spec-tree__leaf-desc {
+    font-size: 14px;
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.spec-tree__leaf-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spec-tree__leaf-list li {
+    position: relative;
+    padding: 6px 0 6px 16px;
+    font-size: 13px;
+    color: var(--color-gray-dark);
+    font-weight: 600;
+}
+
+.spec-tree__leaf-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.spec-tree__branch--g .spec-tree__leaf-list li::before {
+    background: var(--color-terracotta);
+}
+
+.spec-tree__branch--ge .spec-tree__leaf-list li::before {
+    background: #5C3D2E;
+}
+
+/* --- Section 6: 응용 카테고리 --- */
+.cp-app-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.cp-app-grid .cp-app-card.solution-box {
+    background: var(--color-white);
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: var(--spacing-lg) var(--spacing-sm);
+    text-align: center;
+    cursor: pointer;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.cp-app-grid .cp-app-card.solution-box:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-terracotta);
+    background-color: var(--color-white);
+}
+
+.cp-app-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 12px;
+    background: rgba(224, 122, 95, 0.08);
+    color: var(--color-terracotta);
+}
+
+.cp-app-card__title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-sm);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.cp-app-card__perf {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-terracotta);
+    line-height: 1.5;
+    margin-bottom: 4px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.cp-app-card__example {
+    font-size: 11px;
+    color: var(--color-gray-dark);
+    line-height: 1.5;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+/* --- Section 7: 데이터 & 근거 --- */
+.cp-evidence {
+    background-color: var(--color-gray-light, #f9f6f3);
+}
+
+.test-result-table {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.test-result-table__row {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+}
+
+.test-result-table__info {
+    margin-bottom: var(--spacing-md);
+}
+
+.test-result-table__name {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--color-black);
+    margin-bottom: 4px;
+}
+
+.test-result-table__detail {
+    font-size: 13px;
+    color: var(--color-gray-dark);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 24px;
+    background: #f0ece9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.progress-bar__fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-terracotta) 0%, #c96a4f 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+    transition: width 0.8s ease;
+}
+
+.progress-bar__text {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+/* --- Section 8: 비교 분석 (Spider Chart) --- */
+.spider-chart {
+    max-width: 440px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.spider-chart svg {
+    width: 100%;
+    height: auto;
+}
+
+.spider-chart__legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+.spider-chart__legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-gray-dark);
+}
+
+.spider-chart__legend-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.spider-chart__legend-dot--primary {
+    background: var(--color-terracotta);
+}
+
+.spider-chart__legend-dot--gray {
+    background: #999;
+}
+
+/* --- Section 9: 생태·환경 공헌 --- */
+.cp-eco {
+    background-color: var(--color-gray-light, #f9f6f3);
+}
+
+.cp-eco-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.cp-eco-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.cp-eco-card__icon {
+    font-size: 40px;
+    margin-bottom: var(--spacing-md);
+}
+
+.cp-eco-card__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 8px;
+}
+
+.cp-eco-card__value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-terracotta);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cp-eco-card__desc {
+    font-size: 13px;
+    color: var(--color-gray-dark);
+    line-height: 1.7;
+}
+
 /* ==========================================
-   COMPANY — Material Guide Responsive
+   COMPANY PAGE — Responsive (리뉴얼)
    ========================================== */
 @media (max-width: 1024px) {
-    .material-guide-section.grid-4,
-    .material-grid-4 {
-        grid-template-columns: repeat(2, 1fr);
+    .cp-data-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .spec-tree__branches {
+        gap: var(--spacing-md);
+    }
+
+    .cp-app-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .material-subnav-section {
-        padding: var(--spacing-sm) 0;
+    .definition-table__row {
+        grid-template-columns: 90px 1fr 40px;
     }
 
-    .material-subnav__head {
-        margin-bottom: 8px;
+    .definition-table__label {
+        padding: 14px 12px;
+        font-size: 12px;
     }
 
-    .mg-summary-table thead th:last-child,
-    .mg-summary-table td:last-child {
+    .definition-table__value {
+        padding: 14px 12px;
+        font-size: 13px;
+    }
+
+    .process-flow {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .process-arrow {
+        transform: rotate(90deg);
+        padding: var(--spacing-xs) 0;
+    }
+
+    .process-step {
+        min-width: auto;
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .cp-data-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .spec-tree__branches {
+        grid-template-columns: 1fr;
+    }
+
+    .spec-tree__branches::before {
         display: none;
     }
 
-    .mg-summary-table thead th:first-child {
-        width: 80px;
+    .spec-tree__branch::before {
+        left: var(--spacing-xl);
+    }
+
+    .cp-app-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .compare-bar__name {
+        min-width: 56px;
+        font-size: 11px;
+    }
+
+    .spider-chart {
+        max-width: 320px;
     }
 }
 
 @media (max-width: 480px) {
-    .material-subnav__link {
-        padding: 7px 12px;
-        font-size: 12px;
+    .definition-table__row {
+        grid-template-columns: 1fr;
     }
 
-    .mg-summary-table thead {
+    .definition-table__label {
+        border-right: none;
+        border-bottom: 2px solid var(--color-terracotta);
+    }
+
+    .definition-table__icon {
         display: none;
     }
 
-    .mg-summary-table,
-    .mg-summary-table tbody,
-    .mg-summary-table tr,
-    .mg-summary-table td {
-        display: block;
+    .histogram {
+        height: 180px;
+        gap: var(--spacing-sm);
+    }
+
+    .compare-row {
+        padding: var(--spacing-md);
+    }
+
+    .compare-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .compare-bar__name {
+        min-width: auto;
+    }
+
+    .compare-bar__track {
         width: 100%;
     }
 
-    .mg-summary-table tbody tr {
-        border-left: 3px solid transparent;
-        border-bottom: 1px solid #f0ece9;
-        padding: 4px 0;
+    .spec-tree__leaf {
+        padding: var(--spacing-lg);
     }
 
-    .mg-summary-table td {
-        padding: 6px 16px;
+    .test-result-table__row {
+        padding: var(--spacing-md);
     }
 
-    .mg-summary-table td:last-child {
-        display: none;
+    .cp-app-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .material-subnav__link {
+    .cp-app-card {
+        transition: none;
+        transform: none !important;
+    }
+    .histogram__bar,
+    .compare-bar__fill,
+    .progress-bar__fill {
+        transition: none;
+    }
+
+    .cp-eco-card {
         transition: none;
         transform: none !important;
     }
 
-    .mg-summary-table tbody tr,
-    .mg-summary-badge {
+    .process-step {
         transition: none;
     }
-}
-
-/* ==========================================
-   COMPANY — Card/Box 텍스트 위계 개선
-   ========================================== */
-
-/* --- Hero 섹션: 메트릭 강조 + 라벨 축소 --- */
-#mg-hero .box-title {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-gray-dark);
-}
-
-#mg-hero .material-metric {
-    font-size: 36px;
-    letter-spacing: -0.02em;
-    margin: 16px 0 0;
-}
-
-/* --- 나머지 섹션: 좌측 컬러바 + 좌정렬 --- */
-#mg-what .material-box,
-#mg-structure .material-box,
-#mg-benefits .material-box,
-#mg-uses .material-box {
-    text-align: left;
-    border-left: 4px solid var(--color-terracotta);
-    border-radius: 4px 8px 8px 4px;
-}
-
-/* 메트릭 확대 */
-#mg-what .material-metric,
-#mg-structure .material-metric,
-#mg-benefits .material-metric {
-    font-size: 24px;
-    letter-spacing: -0.02em;
-    margin: 12px 0;
-}
-
-/* 키워드/태그 좌정렬 */
-#mg-what .material-keywords,
-#mg-structure .material-keywords,
-#mg-benefits .material-keywords,
-#mg-structure .material-tags {
-    justify-content: flex-start;
-}
-
-/* --- Uses 섹션: box-title 좌정렬 --- */
-#mg-uses .box-title {
-    text-align: left;
 }

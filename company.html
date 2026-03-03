@@ -80,7 +80,7 @@
     <!-- MAIN CONTENT -->
     <main class="main" style="padding-top: var(--header-height);">
         
-        <!-- Hero Section -->
+        <!-- Section 1: Hero Visual -->
         <section class="company-hero">
             <div class="container">
                 <span class="badge">SM GoldMine</span>
@@ -90,316 +90,464 @@
                 <p class="company-hero__subtitle">
                     천연 적토이암 규격화를 공급하는 소재 전문 기업
                 </p>
-            </div>
-        </section>
-        
-        <!-- Section 1: Company Introduction -->
-        <section class="section">
-            <div class="container">
-                <div class="text-center mb-xl">
-                    <h2 class="section__title">
-                        ABOUT SM Gold Mine
-                    </h2>
-                </div>
-                
-                <!-- 3 Feature Boxes -->
-                <div class="features-grid">
-                    <!-- Material -->
-                    <div class="feature-box">
-                        <h3 class="feature-box__title">Material</h3>
-                        <p class="feature-box__subtitle">천연 원석 기반 원자재</p>
-                        <p class="feature-box__description">
-                            검사·시험을 통해 유해물질 없는 소재로 확인
-                        </p>
-                    </div>
-
-                    <!-- Supply -->
-                    <div class="feature-box">
-                        <h3 class="feature-box__title">Supply</h3>
-                        <p class="feature-box__subtitle">채취 완료 물량 보유</p>
-                        <p class="feature-box__description">
-                            즉시 가공·신속 공급으로 가격 경쟁력 확보
-                        </p>
-                    </div>
-
-                    <!-- Standard -->
-                    <div class="feature-box">
-                        <h3 class="feature-box__title">Standard</h3>
-                        <p class="feature-box__subtitle">CORElite 표준 시스템</p>
-                        <p class="feature-box__description">
-                            소재 불분명으로 생기는 민원·재시공 리스크를 줄이는 규격화
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Bridge Banner — About → Material Guide -->
-        <section class="material-bridge-banner animate-on-scroll">
-            <div class="container">
-                <p class="material-bridge-banner__text">
-                    우리가 다루는 소재가 왜 특별한지, 아래 가이드에서 한눈에 확인해 보세요.
+                <p class="company-hero__tagline">
+                    지속 가능한 토지 성능을 만드는 천연 규격 적토이암
                 </p>
             </div>
         </section>
 
-
-        <!-- Section 1) Guide Hero -->
-        <section class="section material-guide-section animate-on-scroll" id="mg-hero">
+        <!-- Section 2: 적토이암 이해 -->
+        <section class="section cp-understand animate-on-scroll">
             <div class="container">
                 <div class="text-center mb-xl">
                     <span class="badge">Red Mudstone</span>
-                    <h2 class="section__title mt-sm">적토이암 핵심 소재 가이드</h2>
-                    <p class="section__description mt-sm">도로 · 도시 · 환경 — 천연 소재의 과학</p>
+                    <h2 class="section__title mt-sm">적토이암 이해</h2>
+                    <p class="section__description mt-sm">천연 퇴적암 기반 규격 소재의 정의와 생산 과정</p>
                 </div>
+
+                <!-- 정의 도표 -->
+                <div class="definition-table animate-on-scroll">
+                    <div class="definition-table__row">
+                        <div class="definition-table__label">원료명</div>
+                        <div class="definition-table__value">적토이암 (Red Mudstone)</div>
+                        <div class="definition-table__icon">🪨</div>
+                    </div>
+                    <div class="definition-table__row">
+                        <div class="definition-table__label">성상</div>
+                        <div class="definition-table__value">붉은색 퇴적암 — Fe₂O₃ 함유, 층리·박리 구조</div>
+                        <div class="definition-table__icon">🔴</div>
+                    </div>
+                    <div class="definition-table__row">
+                        <div class="definition-table__label">생산 과정</div>
+                        <div class="definition-table__value">채취 → 세척 → 분급 → 규격화 (CORElite 표준)</div>
+                        <div class="definition-table__icon">⚙️</div>
+                    </div>
+                    <div class="definition-table__row">
+                        <div class="definition-table__label">목표</div>
+                        <div class="definition-table__value">도로·환경·건축·농업 분야의 지속가능한 성능 소재 공급</div>
+                        <div class="definition-table__icon">🎯</div>
+                    </div>
+                </div>
+
+                <!-- 생산 과정 플로우차트 -->
+                <div class="process-flow animate-on-scroll">
+                    <div class="process-step">
+                        <div class="process-step__number">01</div>
+                        <div class="process-step__title">채취</div>
+                        <div class="process-step__desc">천연 원석 채굴</div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">
+                        <div class="process-step__number">02</div>
+                        <div class="process-step__title">세척</div>
+                        <div class="process-step__desc">불순물 제거</div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">
+                        <div class="process-step__number">03</div>
+                        <div class="process-step__title">분급</div>
+                        <div class="process-step__desc">입도별 분류</div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">
+                        <div class="process-step__number">04</div>
+                        <div class="process-step__title">규격화</div>
+                        <div class="process-step__desc">CORElite 표준</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: 성분·입도 & 물성 데이터 -->
+        <section class="section cp-composition animate-on-scroll">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <span class="badge">Composition & Properties</span>
+                    <h2 class="section__title mt-sm">성분·입도 & 물성 데이터</h2>
+                    <p class="section__description mt-sm">적토이암의 입도 분포와 화학 조성</p>
+                </div>
+
+                <div class="cp-data-grid">
+                    <!-- 입도 분포 히스토그램 -->
+                    <div class="cp-data-card animate-on-scroll">
+                        <h3 class="cp-data-card__title">입도 분포</h3>
+                        <div class="histogram">
+                            <div class="histogram__bar-group">
+                                <div class="histogram__value">15%</div>
+                                <div class="histogram__bar" style="height: 15%"></div>
+                                <div class="histogram__label">0.01mm</div>
+                            </div>
+                            <div class="histogram__bar-group">
+                                <div class="histogram__value">35%</div>
+                                <div class="histogram__bar" style="height: 35%"></div>
+                                <div class="histogram__label">0.1mm</div>
+                            </div>
+                            <div class="histogram__bar-group">
+                                <div class="histogram__value">30%</div>
+                                <div class="histogram__bar" style="height: 30%"></div>
+                                <div class="histogram__label">0.5mm</div>
+                            </div>
+                            <div class="histogram__bar-group">
+                                <div class="histogram__value">12%</div>
+                                <div class="histogram__bar" style="height: 12%"></div>
+                                <div class="histogram__label">1.0mm</div>
+                            </div>
+                            <div class="histogram__bar-group">
+                                <div class="histogram__value">8%</div>
+                                <div class="histogram__bar" style="height: 8%"></div>
+                                <div class="histogram__label">2.0mm</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 성분 Radar Chart -->
+                    <div class="cp-data-card animate-on-scroll">
+                        <h3 class="cp-data-card__title">화학 조성</h3>
+                        <div class="radar-chart">
+                            <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                                <!-- 그리드 -->
+                                <polygon points="150,30 262,90 262,210 150,270 38,210 38,90" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                                <polygon points="150,60 232,105 232,195 150,240 68,195 68,105" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                                <polygon points="150,90 202,120 202,180 150,210 98,180 98,120" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                                <!-- 축 -->
+                                <line x1="150" y1="30" x2="150" y2="270" stroke="#e0e0e0" stroke-width="0.5"/>
+                                <line x1="38" y1="90" x2="262" y2="210" stroke="#e0e0e0" stroke-width="0.5"/>
+                                <line x1="38" y1="210" x2="262" y2="90" stroke="#e0e0e0" stroke-width="0.5"/>
+                                <!-- 데이터 polygon: SiO2 38%, Al2O3 20%, FeO 8%, MgO 4%, K2O 5%, 기타 25% -->
+                                <polygon points="150,39 236,127 227,194 150,210 62,184 56,113" fill="rgba(224,122,95,0.25)" stroke="var(--color-terracotta)" stroke-width="2"/>
+                                <!-- 꼭짓점 도트 -->
+                                <circle cx="150" cy="39" r="4" fill="var(--color-terracotta)"/>
+                                <circle cx="236" cy="127" r="4" fill="var(--color-terracotta)"/>
+                                <circle cx="227" cy="194" r="4" fill="var(--color-terracotta)"/>
+                                <circle cx="150" cy="210" r="4" fill="var(--color-terracotta)"/>
+                                <circle cx="62" cy="184" r="4" fill="var(--color-terracotta)"/>
+                                <circle cx="56" cy="113" r="4" fill="var(--color-terracotta)"/>
+                                <!-- 라벨 -->
+                                <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="600" fill="#333">SiO₂ 38%</text>
+                                <text x="272" y="90" text-anchor="start" font-size="12" font-weight="600" fill="#333">Al₂O₃ 20%</text>
+                                <text x="272" y="218" text-anchor="start" font-size="12" font-weight="600" fill="#333">FeO 8%</text>
+                                <text x="150" y="290" text-anchor="middle" font-size="12" font-weight="600" fill="#333">MgO 4%</text>
+                                <text x="10" y="218" text-anchor="start" font-size="12" font-weight="600" fill="#333">K₂O 5%</text>
+                                <text x="10" y="90" text-anchor="start" font-size="12" font-weight="600" fill="#333">기타 25%</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: 현장 성능 비교 -->
+        <section class="section cp-performance animate-on-scroll">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <span class="badge">Performance</span>
+                    <h2 class="section__title mt-sm">현장 성능 비교</h2>
+                    <p class="section__description mt-sm">적토이암 vs 일반 토사 — 핵심 지표 비교</p>
+                </div>
+
+                <div class="compare-grid animate-on-scroll">
+                    <div class="compare-row">
+                        <div class="compare-row__label">강도</div>
+                        <div class="compare-row__bars">
+                            <div class="compare-bar">
+                                <span class="compare-bar__name">적토이암</span>
+                                <div class="compare-bar__track">
+                                    <div class="compare-bar__fill compare-bar__fill--primary" style="width: 80%">4/5</div>
+                                </div>
+                            </div>
+                            <div class="compare-bar">
+                                <span class="compare-bar__name">일반 토사</span>
+                                <div class="compare-bar__track">
+                                    <div class="compare-bar__fill compare-bar__fill--gray" style="width: 40%">2/5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compare-row">
+                        <div class="compare-row__label">내구성</div>
+                        <div class="compare-row__bars">
+                            <div class="compare-bar">
+                                <span class="compare-bar__name">적토이암</span>
+                                <div class="compare-bar__track">
+                                    <div class="compare-bar__fill compare-bar__fill--primary" style="width: 80%">4/5</div>
+                                </div>
+                            </div>
+                            <div class="compare-bar">
+                                <span class="compare-bar__name">일반 토사</span>
+                                <div class="compare-bar__track">
+                                    <div class="compare-bar__fill compare-bar__fill--gray" style="width: 20%">1/5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compare-row">
+                        <div class="compare-row__label">변형률</div>
+                        <div class="compare-row__bars">
+                            <div class="compare-bar">
+                                <span class="compare-bar__name">적토이암</span>
+                                <div class="compare-bar__track">
+                                    <div class="compare-bar__fill compare-bar__fill--primary" style="width: 25%">낮음</div>
+                                </div>
+                            </div>
+                            <div class="compare-bar">
+                                <span class="compare-bar__name">일반 토사</span>
+                                <div class="compare-bar__track">
+                                    <div class="compare-bar__fill compare-bar__fill--gray" style="width: 85%">높음</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compare-row">
+                        <div class="compare-row__label">유지관리</div>
+                        <div class="compare-row__bars">
+                            <div class="compare-bar">
+                                <span class="compare-bar__name">적토이암</span>
+                                <div class="compare-bar__track">
+                                    <div class="compare-bar__fill compare-bar__fill--primary" style="width: 85%">용이</div>
+                                </div>
+                            </div>
+                            <div class="compare-bar">
+                                <span class="compare-bar__name">일반 토사</span>
+                                <div class="compare-bar__track">
+                                    <div class="compare-bar__fill compare-bar__fill--gray" style="width: 30%">어려움</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: 적토이암 규격 체계 -->
+        <section class="section cp-spec-system animate-on-scroll">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <span class="badge">Specification</span>
+                    <h2 class="section__title mt-sm">적토이암 규격 체계</h2>
+                    <p class="section__description mt-sm">G (Standard) / GE (Enhanced) 이원 체계</p>
+                </div>
+
+                <div class="spec-tree animate-on-scroll">
+                    <div class="spec-tree__root">적토이암 규격</div>
+                    <div class="spec-tree__connector"></div>
+                    <div class="spec-tree__branches">
+                        <div class="spec-tree__branch spec-tree__branch--g">
+                            <div class="spec-tree__leaf">
+                                <h3 class="spec-tree__leaf-title">G (Standard)</h3>
+                                <p class="spec-tree__leaf-desc">기본 규격 — 범용 토목·건설용</p>
+                                <ul class="spec-tree__leaf-list">
+                                    <li>표준 입도 분포</li>
+                                    <li>일반 도로·보행로</li>
+                                    <li>비용 효율 중심</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="spec-tree__branch spec-tree__branch--ge">
+                            <div class="spec-tree__leaf">
+                                <h3 class="spec-tree__leaf-title">GE (Enhanced)</h3>
+                                <p class="spec-tree__leaf-desc">강화 규격 — 고성능·환경 특화</p>
+                                <ul class="spec-tree__leaf-list">
+                                    <li>정밀 입도 + 첨가 처리</li>
+                                    <li>스쿨존·사고다발 구간</li>
+                                    <li>환경 정화·농업용</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: 응용 카테고리 -->
+        <section class="section cp-applications company-brands-section animate-on-scroll">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <span class="badge">Applications</span>
+                    <h2 class="section__title mt-sm">응용 카테고리</h2>
+                    <p class="section__description mt-sm">적토이암 기반 규격화 솔루션 라인업</p>
+                </div>
+                <div class="cp-app-grid animate-on-scroll">
+                    <div class="cp-app-card solution-box" data-solution="solution-soilaroma.html">
+                        <div class="cp-app-card__icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 34V18L18 6l14 12v16H4z"/><path d="M14 34V22h8v12"/>
+                            </svg>
+                        </div>
+                        <h3 class="cp-app-card__title">SoilAroma-G</h3>
+                        <p class="cp-app-card__perf">탈취 92% · 항균 82.9%</p>
+                        <p class="cp-app-card__example">실내 마감재 · 건축 내장</p>
+                    </div>
+                    <div class="cp-app-card solution-box" data-solution="solution-ecoride.html">
+                        <div class="cp-app-card__icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="10" cy="26" r="5"/><circle cx="26" cy="26" r="5"/><path d="M10 21l4-10h8l4 10"/><path d="M14 11h8"/>
+                            </svg>
+                        </div>
+                        <h3 class="cp-app-card__title">EcoRide-G</h3>
+                        <p class="cp-app-card__perf">BPN 102 · 영구 색상</p>
+                        <p class="cp-app-card__example">자전거도로 · 보행로</p>
+                    </div>
+                    <div class="cp-app-card solution-box" data-solution="solution-techlane.html">
+                        <div class="cp-app-card__icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 28h32"/><path d="M6 28V14h24v14"/><path d="M18 14V8"/><path d="M12 14V10"/><path d="M24 14V10"/><path d="M14 21h8"/>
+                            </svg>
+                        </div>
+                        <h3 class="cp-app-card__title">TechLane-G</h3>
+                        <p class="cp-app-card__perf">동적안정도 3,928회/mm</p>
+                        <p class="cp-app-card__example">버스차로 · 스쿨존</p>
+                    </div>
+                    <div class="cp-app-card solution-box" data-solution="solution-ecofield.html">
+                        <div class="cp-app-card__icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="8" width="28" height="20" rx="2"/><line x1="4" y1="18" x2="32" y2="18"/><line x1="18" y1="8" x2="18" y2="28"/><circle cx="18" cy="18" r="4"/>
+                            </svg>
+                        </div>
+                        <h3 class="cp-app-card__title">EcoField-G</h3>
+                        <p class="cp-app-card__perf">PM 저감 · 친환경 운동장</p>
+                        <p class="cp-app-card__example">학교 운동장 · 공원</p>
+                    </div>
+                    <div class="cp-app-card solution-box" data-solution="solution-gaiacure.html">
+                        <div class="cp-app-card__icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 32V16"/><path d="M18 16c0-8 8-12 12-12-1 5-4 10-12 12"/><path d="M18 20c0-6-6-10-10-10 1 4 3 8 10 10"/>
+                            </svg>
+                        </div>
+                        <h3 class="cp-app-card__title">GaiaCure-G</h3>
+                        <p class="cp-app-card__perf">토양 개량 · pH 조절</p>
+                        <p class="cp-app-card__example">농업 · 축산 · 조경</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: 데이터 & 근거 -->
+        <section class="section cp-evidence animate-on-scroll">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <span class="badge">Test Data</span>
+                    <h2 class="section__title mt-sm">데이터 & 근거</h2>
+                    <p class="section__description mt-sm">공인 시험성적서 기반 핵심 성능 지표</p>
+                </div>
+
+                <div class="test-result-table animate-on-scroll">
+                    <div class="test-result-table__row">
+                        <div class="test-result-table__info">
+                            <div class="test-result-table__name">압축강도</div>
+                            <div class="test-result-table__detail">3.5 MPa — 일반 기준 대비 우수</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar__fill" style="width: 70%">
+                                <span class="progress-bar__text">70%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-result-table__row">
+                        <div class="test-result-table__info">
+                            <div class="test-result-table__name">내구성 지수</div>
+                            <div class="test-result-table__detail">85/100 — 장기 성능 유지</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar__fill" style="width: 85%">
+                                <span class="progress-bar__text">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-result-table__row">
+                        <div class="test-result-table__info">
+                            <div class="test-result-table__name">흡수율</div>
+                            <div class="test-result-table__detail">8% — 적정 다공성 유지</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar__fill" style="width: 80%">
+                                <span class="progress-bar__text">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: 비교 분석 (Radar Chart) -->
+        <section class="section cp-spider animate-on-scroll">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <span class="badge">Comparison</span>
+                    <h2 class="section__title mt-sm">비교 분석</h2>
+                    <p class="section__description mt-sm">적토이암 vs 기존 대체재 — 5축 종합 비교</p>
+                </div>
+
+                <div class="spider-chart animate-on-scroll">
+                    <svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg">
+                        <!-- 5각형 그리드 -->
+                        <polygon points="200,40 358,155 298,320 102,320 42,155" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                        <polygon points="200,72 326,164 278,296 122,296 74,164" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                        <polygon points="200,104 294,173 258,272 142,272 106,173" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                        <polygon points="200,136 262,182 238,248 162,248 138,182" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                        <!-- 축 -->
+                        <line x1="200" y1="40" x2="200" y2="180" stroke="#e0e0e0" stroke-width="0.5"/>
+                        <line x1="358" y1="155" x2="200" y2="180" stroke="#e0e0e0" stroke-width="0.5"/>
+                        <line x1="298" y1="320" x2="200" y2="180" stroke="#e0e0e0" stroke-width="0.5"/>
+                        <line x1="102" y1="320" x2="200" y2="180" stroke="#e0e0e0" stroke-width="0.5"/>
+                        <line x1="42" y1="155" x2="200" y2="180" stroke="#e0e0e0" stroke-width="0.5"/>
+                        <!-- 대체재 polygon (gray) -->
+                        <polygon points="200,104 294,173 258,272 142,272 106,173" fill="rgba(160,160,160,0.15)" stroke="#999" stroke-width="1.5" stroke-dasharray="4,3"/>
+                        <!-- 적토이암 polygon (terracotta) -->
+                        <polygon points="200,52 346,160 278,310 118,296 58,160" fill="rgba(224,122,95,0.2)" stroke="#E07A5F" stroke-width="2.5"/>
+                        <!-- 적토이암 꼭짓점 -->
+                        <circle cx="200" cy="52" r="5" fill="#E07A5F"/>
+                        <circle cx="346" cy="160" r="5" fill="#E07A5F"/>
+                        <circle cx="278" cy="310" r="5" fill="#E07A5F"/>
+                        <circle cx="118" cy="296" r="5" fill="#E07A5F"/>
+                        <circle cx="58" cy="160" r="5" fill="#E07A5F"/>
+                        <!-- 라벨 -->
+                        <text x="200" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#333">강도</text>
+                        <text x="370" y="158" text-anchor="start" font-size="13" font-weight="600" fill="#333">내구성</text>
+                        <text x="308" y="338" text-anchor="middle" font-size="13" font-weight="600" fill="#333">재현성</text>
+                        <text x="92" y="338" text-anchor="middle" font-size="13" font-weight="600" fill="#333">친환경</text>
+                        <text x="22" y="158" text-anchor="end" font-size="13" font-weight="600" fill="#333">비용효율</text>
+                    </svg>
+                    <div class="spider-chart__legend">
+                        <div class="spider-chart__legend-item">
+                            <span class="spider-chart__legend-dot spider-chart__legend-dot--primary"></span>
+                            적토이암
+                        </div>
+                        <div class="spider-chart__legend-item">
+                            <span class="spider-chart__legend-dot spider-chart__legend-dot--gray"></span>
+                            기존 대체재
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: 생태·환경 공헌 -->
+        <section class="section cp-eco animate-on-scroll">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <span class="badge">Sustainability</span>
+                    <h2 class="section__title mt-sm">생태·환경 공헌</h2>
+                    <p class="section__description mt-sm">적토이암이 만드는 지속가능한 미래</p>
+                </div>
+
                 <div class="grid grid-3 animate-on-scroll">
-                    <div class="box material-box is-static">
-                        <div class="box-title">천연 붉은색</div>
-                        <div class="material-metric">Fe₂O₃</div>
+                    <div class="cp-eco-card">
+                        <div class="cp-eco-card__icon">🌿</div>
+                        <h3 class="cp-eco-card__title">CO₂ 저감</h3>
+                        <p class="cp-eco-card__value">재도색 불필요 → 탄소 배출 절감</p>
+                        <p class="cp-eco-card__desc">화학 도료 미사용으로 제조·시공·유지 전 과정에서 탄소 발자국 최소화</p>
                     </div>
-                    <div class="box material-box is-static">
-                        <div class="box-title">고결합 · 고내구</div>
-                        <div class="material-metric">피복율 67%</div>
+                    <div class="cp-eco-card">
+                        <div class="cp-eco-card__icon">🧪</div>
+                        <h3 class="cp-eco-card__title">천연 소재 인증</h3>
+                        <p class="cp-eco-card__value">유해물질 不검출</p>
+                        <p class="cp-eco-card__desc">공인 시험을 통해 중금속·유해물질 미검출 확인, 100% 천연 원석 기반</p>
                     </div>
-                    <div class="box material-box is-static">
-                        <div class="box-title">미끄럼 저항</div>
-                        <div class="material-metric">BPN 102</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2) What is it -->
-        <section class="section material-guide-section animate-on-scroll" id="mg-what">
-            <div class="container">
-                <div class="text-center mb-xl">
-                    <h2 class="section__title">적토이암이란?</h2>
-                    <p class="section__description mt-sm">퇴적 → 압착 → 고결</p>
-                </div>
-                <div class="grid grid-2">
-                    <div class="box material-box is-static">
-                        <div class="box-title">정의</div>
-                        <div class="material-keywords">
-                            <span class="material-key">퇴적암</span>
-                            <span class="material-key">진흙·점토</span>
-                            <span class="material-key">층층이</span>
-                            <span class="material-key">자연 형성</span>
-                        </div>
-                    </div>
-                    <div class="box material-box is-static">
-                        <div class="box-title">핵심 포인트</div>
-                        <div class="material-keywords">
-                            <span class="material-key">100% 천연 색</span>
-                            <span class="material-key">미세 구조</span>
-                            <span class="material-key">다공성</span>
-                            <span class="material-key">흡착</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3) Structure -->
-        <section class="section material-guide-section animate-on-scroll" id="mg-structure">
-            <div class="container">
-                <div class="text-center mb-xl">
-                    <h2 class="section__title">성분 · 구조적 특징</h2>
-                    <p class="section__description mt-sm">2대 핵심 특성</p>
-                </div>
-                <div class="grid grid-2">
-                    <div class="box material-box is-static">
-                        <div class="box-title">산화철(Fe₂O₃) — 천연 붉은색</div>
-                        <div class="material-keywords">
-                            <span class="material-key">Fe₂O₃</span>
-                            <span class="material-key">내부까지 붉음</span>
-                            <span class="material-key">색소 X</span>
-                            <span class="material-key">영구 시인성</span>
-                        </div>
-                        <div class="material-tags">
-                            <span class="material-tag">시인성</span>
-                            <span class="material-tag">영구 색상</span>
-                            <span class="material-tag">도색 대체</span>
-                        </div>
-                    </div>
-                    <div class="box material-box is-static">
-                        <div class="box-title">층리 · 박리성 — 미세 분리 구조</div>
-                        <div class="material-keywords">
-                            <span class="material-key">층리성</span>
-                            <span class="material-key">박리성</span>
-                            <span class="material-key">다공성</span>
-                            <span class="material-key">흡착</span>
-                        </div>
-                        <div class="material-tags">
-                            <span class="material-tag">아스팔트 흡착</span>
-                            <span class="material-tag">결합력</span>
-                            <span class="material-tag">내구</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4) Benefits -->
-        <section class="section material-guide-section animate-on-scroll" id="mg-benefits">
-            <div class="container">
-                <div class="text-center mb-xl">
-                    <h2 class="section__title">왜 특별할까요?</h2>
-                    <p class="section__description mt-sm">핵심 성능 4대 가치</p>
-                </div>
-                <div class="grid grid-4">
-                    <div class="box material-box is-static">
-                        <div class="box-title">영구 색상</div>
-                        <div class="material-metric">도색 X · 마모에도 유지</div>
-                        <div class="material-keywords">
-                            <span class="material-key">스쿨존</span>
-                            <span class="material-key">버스차로</span>
-                            <span class="material-key">재도색 비용 ↓</span>
-                        </div>
-                    </div>
-                    <div class="box material-box is-static">
-                        <div class="box-title">결합력 · 내구</div>
-                        <div class="material-metric">피복율 67% · 동적안정도 3,928회/mm</div>
-                        <div class="material-keywords">
-                            <span class="material-key">포트홀 ↓</span>
-                            <span class="material-key">소성변형 저항</span>
-                            <span class="material-key">수명 ↑</span>
-                        </div>
-                    </div>
-                    <div class="box material-box is-static">
-                        <div class="box-title">미끄럼 저항</div>
-                        <div class="material-metric">BPN 102</div>
-                        <div class="material-keywords">
-                            <span class="material-key">빗길</span>
-                            <span class="material-key">눈길</span>
-                            <span class="material-key">사고 위험구간</span>
-                        </div>
-                    </div>
-                    <div class="box material-box is-static">
-                        <div class="box-title">환경 정화</div>
-                        <div class="material-metric">탈취 92% · 항균 82.9%</div>
-                        <div class="material-keywords">
-                            <span class="material-key">악취 저감</span>
-                            <span class="material-key">세균 억제</span>
-                            <span class="material-key">음이온</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 5) Uses -->
-        <section class="section material-guide-section animate-on-scroll" id="mg-uses">
-            <div class="container">
-                <div class="text-center mb-xl">
-                    <h2 class="section__title">어디에 쓰이나요?</h2>
-                    <p class="section__description mt-sm">활용 범위</p>
-                </div>
-                <div class="grid grid-2">
-                    <div class="box material-box is-static">
-                        <div class="box-title">적용처</div>
-                        <div class="material-list">
-                            <div class="material-list__item">버스전용차로</div>
-                            <div class="material-list__item">어린이 보호구역 (스쿨존)</div>
-                            <div class="material-list__item">노인 보호구역</div>
-                            <div class="material-list__item">자전거 전용도로</div>
-                            <div class="material-list__item">급커브 · 사고다발 구간</div>
-                            <div class="material-list__item">도심 보행로</div>
-                        </div>
-                    </div>
-                    <div class="box material-box is-static">
-                        <div class="box-title">대표 활용</div>
-                        <div class="material-cards">
-                            <div class="material-mini">
-                                <div class="material-mini__title">교통안전 포장</div>
-                                <div class="material-mini__tag">건설신기술 제998호</div>
-                                <div class="material-mini__keys">시인성 · 미끄럼 저항 · 내구</div>
-                            </div>
-                            <div class="material-mini">
-                                <div class="material-mini__title">유지관리 절감</div>
-                                <div class="material-mini__keys">재도색 ↓ · 보수 ↓ · 예산 ↓</div>
-                            </div>
-                            <div class="material-mini">
-                                <div class="material-mini__title">환경·건축·농축산</div>
-                                <div class="material-mini__keys">탈취 · 항균 · 새집증후군 · 축사 악취</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 6) Summary -->
-        <section class="section material-guide-section animate-on-scroll" id="mg-summary">
-            <div class="container">
-                <div class="text-center mb-xl">
-                    <h2 class="section__title">핵심 가치 요약</h2>
-                    <p class="section__description mt-sm">안전 · 내구 · 환경 — 한눈에</p>
-                </div>
-                <div class="mg-summary-table-wrap">
-                    <table class="mg-summary-table">
-                        <thead>
-                            <tr>
-                                <th>구분</th>
-                                <th>특징 · 성능</th>
-                                <th>기대 효과</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="mg-summary-table__cat">성분 · 색상</td>
-                                <td>Fe₂O₃ · 내부까지 붉음</td>
-                                <td><span class="mg-summary-badge">영구 시인성 · 도색 대체</span></td>
-                            </tr>
-                            <tr>
-                                <td class="mg-summary-table__cat">내구</td>
-                                <td>피복율 67%</td>
-                                <td><span class="mg-summary-badge">박리 · 포트홀 감소</span></td>
-                            </tr>
-                            <tr>
-                                <td class="mg-summary-table__cat">강성</td>
-                                <td>동적안정도 3,928회/mm</td>
-                                <td><span class="mg-summary-badge">소성변형 저항</span></td>
-                            </tr>
-                            <tr>
-                                <td class="mg-summary-table__cat">안전</td>
-                                <td>BPN 102</td>
-                                <td><span class="mg-summary-badge">빗길 · 눈길 사고 저감</span></td>
-                            </tr>
-                            <tr>
-                                <td class="mg-summary-table__cat">환경</td>
-                                <td>탈취 92% · 항균 82.9% · 음이온</td>
-                                <td><span class="mg-summary-badge">악취 · 세균 · 매연 저감</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Solution Links Section -->
-        <section class="section company-brands-section">
-            <div class="container">
-                <div class="text-center mb-xl">
-                    <h2 class="section__subtitle-main">Standardized Solution Family Brand</h2>
-                    <p class="section__description mt-sm">규격화 솔루션 패밀리 브랜드</p>
-                </div>
-                <div class="grid grid-5">
-                    <div class="box solution-box" data-solution="solution-soilaroma.html">
-                        <h3 class="box-title">SoilAroma-G</h3>
-                    </div>
-                    <div class="box solution-box" data-solution="solution-ecoride.html">
-                        <h3 class="box-title">EcoRide-G</h3>
-                    </div>
-                    <div class="box solution-box" data-solution="solution-techlane.html">
-                        <h3 class="box-title">TechLane-G</h3>
-                    </div>
-                    <div class="box solution-box" data-solution="solution-ecofield.html">
-                        <h3 class="box-title">EcoField-G</h3>
-                    </div>
-                    <div class="box solution-box" data-solution="solution-gaiacure.html">
-                        <h3 class="box-title">GaiaCure-G</h3>
+                    <div class="cp-eco-card">
+                        <div class="cp-eco-card__icon">♻️</div>
+                        <h3 class="cp-eco-card__title">지속가능성 지표</h3>
+                        <p class="cp-eco-card__value">장기 수명 → 자원 절약</p>
+                        <p class="cp-eco-card__desc">높은 내구성으로 재시공 주기 연장, 폐기물 발생 최소화 및 자원 순환 기여</p>
                     </div>
                 </div>
             </div>
@@ -441,28 +589,31 @@
     </footer>
     
     <!-- CONTACT MODAL -->
-    <div id="contactModal" class="modal">
+    <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
         <div class="modal__content">
             <div class="modal__header">
-                <h2 class="modal__title">Contact</h2>
+                <h2 class="modal__title" id="contactModalTitle">Contact</h2>
                 <span class="modal__close">&times;</span>
             </div>
             <form id="contactForm" class="modal__form">
                 <div class="form__group">
                     <label for="name" class="form__label">이름 / 담당자</label>
                     <input type="text" id="name" class="form__input" required>
+                    <p class="form__error-text"></p>
                 </div>
-                
+
                 <div class="form__group">
                     <label for="email" class="form__label">이메일</label>
                     <input type="email" id="email" class="form__input" required>
+                    <p class="form__error-text"></p>
                 </div>
-                
+
                 <div class="form__group">
                     <label for="phone" class="form__label">연락처</label>
                     <input type="tel" id="phone" class="form__input" required>
+                    <p class="form__error-text"></p>
                 </div>
-                
+
                 <div class="form__group">
                     <label for="solution" class="form__label">관심 솔루션</label>
                     <select id="solution" class="form__select" required>
@@ -474,11 +625,13 @@
                         <option value="GaiaCure-G">GaiaCure-G (흙살림e지)</option>
                         <option value="기타">기타</option>
                     </select>
+                    <p class="form__error-text"></p>
                 </div>
-                
+
                 <div class="form__group">
                     <label for="message" class="form__label">문의 내용</label>
                     <textarea id="message" class="form__textarea" rows="5" required></textarea>
+                    <p class="form__error-text"></p>
                     <span class="form__placeholder">프로젝트 규모, 예상 일정, 기타 문의사항을 자유롭게 작성해주세요.</span>
                 </div>
                 
