@@ -143,5 +143,7 @@
                 document.body.appendChild(createPopup(p.id, p.data));
             });
         })
-        .catch(function() {});
+        .catch(function(err) {
+            console.warn('[SMGM Popup] 로드 실패:', err.code || err.message || err);
+        });
 })();
