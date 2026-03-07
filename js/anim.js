@@ -54,7 +54,9 @@ function revealHero() {
 // ─────────────────────────────────────────────
 // 4. Preloader (index.html 전용)
 // ─────────────────────────────────────────────
-const isIndexPage = !!document.querySelector('.hero__title-line');
+const pathname = window.location.pathname;
+const isIndexPage = !!document.querySelector('.hero__title-line') &&
+    (pathname === '/' || pathname.endsWith('/index.html') || pathname.endsWith('index.html') || pathname === '');
 
 if (isIndexPage) {
     if (!prefersReducedMotion) {
