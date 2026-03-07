@@ -68,8 +68,17 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav__item">
-                        <a href="performance.html" class="nav__link">PERFORMANCE</a>
+                    <li class="nav__item nav__dropdown">
+                        <a href="#" class="nav__link nav__link-with-dropdown">DATA LAB</a>
+                        <button class="nav__dropdown-icon" aria-label="Toggle data lab menu">
+                            <span>▼</span>
+                        </button>
+                        <ul class="nav__dropdown-menu">
+                            <li class="nav__dropdown-item"><a href="performance.html" class="nav__dropdown-link">Performance</a></li>
+                            <li class="nav__dropdown-item"><a href="track-record.html" class="nav__dropdown-link">Estimator</a></li>
+                            <li class="nav__dropdown-item"><a href="projects.html" class="nav__dropdown-link">Projects</a></li>
+                            <li class="nav__dropdown-item"><a href="certificates.html" class="nav__dropdown-link">Certificates</a></li>
+                        </ul>
                     </li>
                     <li class="nav__item">
                         <a href="news.html" class="nav__link">NEWS</a>
@@ -128,7 +137,7 @@
                         <div class="intelligence-item__number">02</div>
                         <h3 class="intelligence-item__title-en">Functional Performance</h3>
                         <h4 class="intelligence-item__title-ko">(기능성 성능)</h4>
-                        <p class="intelligence-item__description">원적외선 방출 0.93, 전기 절연성 등 검증된 물리·화학적 특성</p>
+                        <p class="intelligence-item__description">원적외선 방사율 0.922, 음이온 160 ION/cc, 5대 중금속 불검출 — 5개 공인기관 검증</p>
                     </div>
                     
                     <!-- Item 03 -->
@@ -233,14 +242,14 @@
                     <span class="badge">ESG</span>
                     <h2 class="section__title-lg mt-md">Environmental Commitment</h2>
                     <p class="section__description mt-sm">환경 책임</p>
-                    <p class="section__description mt-md">자원 순환과 탄소 중립을 실천하는 친환경 기업</p>
+                    <p class="section__description mt-md">자원 효율과 탄소 중립을 실천하는 친환경 기업</p>
                 </div>
                 
                 <div class="esg-grid">
                     <!-- 자원 순환 -->
                     <div class="esg-item">
-                        <h3 class="esg-item__title">자원 순환</h3>
-                        <p class="esg-item__description">자연에서 분리된 적토이암 활용으로 산업 현장 자원 순환 실천</p>
+                        <h3 class="esg-item__title">자원 효율</h3>
+                        <p class="esg-item__description">광물성 토석 적토이암의 효율적 활용 실천</p>
                     </div>
                     
                     <!-- 탄소 중립 -->
@@ -357,7 +366,7 @@
                     SM<span class="footer__logo-gm">GM</span>™
                 </div>
                 <p class="footer__tagline">
-                    SMGM의 CORElite-G(e)은 지속가능한 지구의 내일에 기여합니다.
+                    SMGM의 CORElite-G는 지속가능한 지구의 내일에 기여합니다.
                 </p>
             </div>
             <div class="footer__copyright">
@@ -374,28 +383,31 @@
     <!-- ==========================================
          CONTACT MODAL
          ========================================== -->
-    <div id="contactModal" class="modal">
+    <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
         <div class="modal__content">
             <div class="modal__header">
-                <h2 class="modal__title">Contact</h2>
+                <h2 class="modal__title" id="contactModalTitle">Contact</h2>
                 <span class="modal__close">&times;</span>
             </div>
             <form id="contactForm" class="modal__form">
                 <div class="form__group">
                     <label for="name" class="form__label">이름 / 담당자</label>
                     <input type="text" id="name" class="form__input" required>
+                    <p class="form__error-text"></p>
                 </div>
-                
+
                 <div class="form__group">
                     <label for="email" class="form__label">이메일</label>
                     <input type="email" id="email" class="form__input" required>
+                    <p class="form__error-text"></p>
                 </div>
-                
+
                 <div class="form__group">
                     <label for="phone" class="form__label">연락처</label>
                     <input type="tel" id="phone" class="form__input" required>
+                    <p class="form__error-text"></p>
                 </div>
-                
+
                 <div class="form__group">
                     <label for="solution" class="form__label">관심 솔루션</label>
                     <select id="solution" class="form__select" required>
@@ -407,11 +419,13 @@
                         <option value="GaiaCure-G">GaiaCure-G (흙살림e지)</option>
                         <option value="기타">기타</option>
                     </select>
+                    <p class="form__error-text"></p>
                 </div>
-                
+
                 <div class="form__group">
                     <label for="message" class="form__label">문의 내용</label>
                     <textarea id="message" class="form__textarea" rows="5" required></textarea>
+                    <p class="form__error-text"></p>
                     <span class="form__placeholder">프로젝트 규모, 예상 일정, 기타 문의사항을 자유롭게 작성해주세요.</span>
                 </div>
                 

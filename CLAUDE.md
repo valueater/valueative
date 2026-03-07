@@ -64,13 +64,114 @@ python3 -m http.server 8000
 5. **Solutions Hover**: 텍스처 `scale(1.05)` + 테두리 하이라이트 sweep.
 6. **Performance 카운트업**: 핵심 수치 카운트업 + 배경 화학 기호/분자 부유 애니메이션.
 
-## 추가섹션 구성 작업 기획안
+## DATA LAB 메뉴 기획안
 
-"추가섹션 구성 작업" 지시가 있을 때 아래 기획을 참조한다.
+"데이터랩 추가" 지시가 있을 때 아래 기획을 참조한다.
 
-### 배경
+### 개요
 
-각 솔루션 페이지에 실제 적용 권장 사항, 기존 실적, 시공 사례 사진을 추가하는 작업.
+GNB에 **DATA LAB** 드롭다운 메뉴를 신설하여, 실적·시공현황·성적서/인증서·기존 Performance 데이터를 통합 관리한다.
+
+### GNB 구조 변경 (As-Is → To-Be)
+
+```
+As-Is: COMPANY | BRAND | SOLUTION ▼ | PERFORMANCE | NEWS | CONTACT
+To-Be: COMPANY | BRAND | SOLUTION ▼ | DATA LAB ▼  | NEWS | CONTACT
+```
+
+**DATA LAB 하위 메뉴:**
+
+| 메뉴명 | 파일 | 설명 |
+|--------|------|------|
+| Performance | `performance.html` (기존) | CORElite-G 원료 시험 데이터 (성분 분석, 원적외선, 안전성) — 변경 없음 |
+| Track Record | `track-record.html` (신규) | 납품 건수·총 시공 면적·적용 지역 수 카운트업 + 발주처 유형 태그 |
+| Projects | `projects.html` (신규) | 솔루션별 필터 탭 + 시공 사례 카드 그리드 (사진·위치·규모·결과) |
+| Certificates | `certificates.html` (신규) | 각종 성적서·인증서 카드 그리드 (PDF 미리보기 또는 다운로드 링크) |
+
+### 페이지별 상세 명세
+
+#### Performance (기존 유지)
+
+- `performance.html` 내용 변경 없음
+- GNB 링크만 DATA LAB 드롭다운 하위로 이동
+
+#### Track Record (신규)
+
+Badge: `"Track Record"` / 제목: `"누적 시공 실적"`
+
+- **카운트업 스탯 바**: `data-count` 패턴 재사용 — 납품 건수 · 총 시공 면적 · 적용 지역 수
+- **클라이언트 섹션**: 발주처 유형 태그(지자체 · 교육청 · 건설사 · 조경사 등) 또는 로고 그리드
+- 실적 수치 미확보 시: "현재 파일럿 프로젝트 진행 중" 또는 "문의 시 레퍼런스 제공" 텍스트로 대체
+- CSS 클래스: `.track-record-stats`, `.track-record-clients`
+
+#### Projects (신규)
+
+Badge: `"Projects"` / 제목: `"시공 사례"`
+
+- **솔루션별 필터 탭**: ALL | SoilAroma | EcoRide | TechLane | EcoField | GaiaCure
+- **카드 그리드 3열** (기본 레이아웃) / CSS 클래스: `.project-grid`, `.project-card`, `.project-filter`
+
+**프로젝트 카드 내 정보 구조:**
+```
+[시공 사진]
+프로젝트명
+위치: OO시 OO구 | 규모: 000 m²
+적용량: 000 ton | 발주: OO기관
+결과: 주요 성과 1줄
+```
+
+**시공 사진 유형 우선순위:**
+
+| 유형 | 우선순위 |
+|------|---------|
+| 시공 중 현장 (투입→혼합→완성 과정) | 최우선 |
+| 완공 후 전경 와이드샷 | 필수 |
+| Before/After 동일 앵글 | 선택 |
+| 클로즈업 디테일 (질감·색상) | 중간 |
+| 사용자 현장 사진 (학생·농부·작업자) | 스토리텔링용 |
+
+#### Certificates (신규)
+
+Badge: `"Certificates"` / 제목: `"성적서 · 인증서"`
+
+- **카드 그리드**: 인증서/성적서별 카드 (썸네일 + 문서명 + 발급기관 + 발급일)
+- **다운로드/미리보기**: PDF 링크 또는 라이트박스 이미지 뷰어
+- CSS 클래스: `.cert-grid`, `.cert-card`
+
+### 구현 Phase
+
+- **Phase 1**: GNB에 DATA LAB 드롭다운 추가 + `projects.html` 생성 (GaiaCure 버섯 생육 사례부터)
+- **Phase 2**: `certificates.html` 생성 (성적서·인증서)
+- **Phase 3**: `track-record.html` 생성 (실적 수치 확보 후)
+
+### 전 페이지 GNB 수정 범위
+
+모든 HTML 파일(11개)의 `<nav>` 영역에서 PERFORMANCE 단독 링크를 DATA LAB 드롭다운으로 교체해야 함.
+
+```html
+<!-- 변경 전 -->
+<li class="nav__item"><a href="performance.html" class="nav__link">PERFORMANCE</a></li>
+
+<!-- 변경 후 -->
+<li class="nav__item nav__dropdown">
+    <a href="#" class="nav__link nav__link-with-dropdown">DATA LAB</a>
+    <button class="nav__dropdown-icon" aria-label="Toggle data lab menu">
+        <span>▼</span>
+    </button>
+    <ul class="nav__dropdown-menu">
+        <li class="nav__dropdown-item"><a href="performance.html" class="nav__dropdown-link">Performance</a></li>
+        <li class="nav__dropdown-item"><a href="track-record.html" class="nav__dropdown-link">Track Record</a></li>
+        <li class="nav__dropdown-item"><a href="projects.html" class="nav__dropdown-link">Projects</a></li>
+        <li class="nav__dropdown-item"><a href="certificates.html" class="nav__dropdown-link">Certificates</a></li>
+    </ul>
+</li>
+```
+
+---
+
+## 솔루션 페이지 추가섹션 기획안 (참고용)
+
+솔루션 개별 페이지에 섹션을 추가할 때 아래를 참조한다. (DATA LAB과 별개로, 솔루션 페이지 자체 확장이 필요할 때)
 
 ### 현재 솔루션 페이지 구조 (As-Is)
 
@@ -82,12 +183,10 @@ Hero → Problem → Solution → Benefits → Application → CTA
 
 ```
 Hero → Problem → Solution → Benefits → Application
-→ [NEW] Specifications → [NEW] Track Record → [NEW] Case Studies → CTA
+→ [NEW] Specifications → CTA
 ```
 
----
-
-### Section A — Specifications (적용 권장 사항)
+### Specifications (적용 권장 사항)
 
 Badge: `"Specifications"` / 제목: `"권장 적용 기준"`
 
@@ -104,64 +203,6 @@ Badge: `"Specifications"` / 제목: `"권장 적용 기준"`
 | TechLane-G | 도로 등급별 배합 비율, 내구 년수 |
 | EcoField-G | 운동장 면적 기준, PM 저감 수치 |
 | GaiaCure-G | 작물별 투입량 표, 토양 pH 적정 범위 |
-
----
-
-### Section B — Track Record (시공 실적)
-
-Badge: `"Track Record"` / 제목: `"누적 시공 실적"`
-
-- **카운트업 스탯 바**: performance 페이지의 `data-count` 패턴 재사용 — 납품 건수 · 총 시공 면적 · 적용 지역 수
-- **클라이언트 섹션**: 로고 그리드(공개 가능 시) 또는 발주처 유형 태그(지자체 · 교육청 · 건설사 · 조경사 등)
-- 실적 수치 미확보 시: "현재 파일럿 프로젝트 진행 중" 또는 "문의 시 레퍼런스 제공" 텍스트로 대체
-
----
-
-### Section C — Case Studies (시공 사례)
-
-Badge: `"Case Studies"` / 제목: `"시공 사례"`
-
-**레이아웃 옵션 (우선순위 순):**
-
-1. **카드 그리드 3열** — 기본, 구현 단순 / CSS 클래스: `.case-grid`, `.case-card`
-2. **매거진 레이아웃** — 대표 사례 1개(넓음) + 서브 2개 / 시각적 임팩트 필요 시
-3. **Before/After 슬라이더** — 드래그 핸들로 전후 비교 / 변화가 극적인 경우
-4. **타임라인 형** — 시공 단계별 사진 순서가 중요한 경우
-
-**케이스 카드 내 정보 구조:**
-```
-[시공 사진]
-프로젝트명
-위치: OO시 OO구 | 규모: 000 m²
-적용량: 000 ton | 발주: OO기관
-결과: 주요 성과 1줄
-```
-
-**시공 사진 유형 우선순위:**
-
-| 유형 | 우선순위 |
-|------|---------|
-| 시공 중 현장 (투입→혼합→완성 과정) | 최우선 |
-| 완공 후 전경 와이드샷 | 필수 |
-| Before/After 동일 앵글 | 슬라이더 구현 시 필수 |
-| 클로즈업 디테일 (질감·색상) | 중간 |
-| 사용자 현장 사진 (학생·농부·작업자) | 스토리텔링용 |
-
----
-
-### 전체 사이트 구조 확장 시나리오
-
-| 옵션 | 조건 | 설명 |
-|------|------|------|
-| A. 기존 솔루션 페이지 확장 | 사례 수 적을 때 (권장) | 각 solution-xxx.html에 섹션 추가 |
-| B. 전용 케이스 페이지 신설 | 사례 10건 이상 | cases.html 또는 projects.html, GNB에 "PROJECTS" 항목 추가, 솔루션별 필터 탭 |
-| C. PERFORMANCE 페이지 확장 | 솔루션 구분 불필요 시 | performance.html에 Track Record + Case Studies 추가 |
-
-### 구현 Phase
-
-- **Phase 1**: Case Studies 카드 그리드 섹션 — 사진 플레이스홀더 포함 구조 먼저 잡기
-- **Phase 2**: Track Record 카운트업 스탯 + Specifications 테이블
-- **Phase 3**: 사례 수 증가 시 cases.html 전용 페이지 분리 + Before/After 슬라이더
 
 ---
 

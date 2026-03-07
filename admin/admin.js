@@ -23,6 +23,12 @@
         loadPopups();
         setupNewsForm();
         setupPopupForm();
+        loadDensity();
+        setupDensityForm();
+        loadProjects();
+        setupProjectForm();
+        loadCerts();
+        setupCertForm();
     }
 
     // ========== TABS ==========
@@ -86,7 +92,6 @@
                 tbody.appendChild(tr);
             });
 
-            // Bind edit/delete
             tbody.querySelectorAll('[data-edit-news]').forEach(function(btn) {
                 btn.addEventListener('click', function() {
                     editNews(this.dataset.editNews);
@@ -255,7 +260,6 @@
             if (!doc.exists) return;
             var d = doc.data();
 
-            // Mark as read
             if (!d.isRead) {
                 db.collection('contacts').doc(id).update({ isRead: true });
             }
@@ -437,7 +441,332 @@
         });
     }
 
-    // ========== UTILITIES ==========
+    // ==========================================
+    // DENSITY MANAGEMENT
+    // ==========================================
+    var DENSITY_MAP = {
+        'SoilAroma-G': 'densitySoilAroma',
+        'EcoRide-G': 'densityEcoRide',
+        'TechLane-G': 'densityTechLane',
+        'EcoField-G': 'densityEcoField',
+        'GaiaCure-G': 'densityGaiaCure'
+    };
+
+    function loadDensity() {
+        db.collection('settings').doc('solutionDensity').get()
+            .then(function(doc) {
+                if (!doc.exists) return;
+                var d = doc.data();
+                Object.keys(DENSITY_MAP).forEach(function(key) {
+                    var inputId = DENSITY_MAP[key];
+                    var el = document.getElementById(inputId);
+                    if (el && d[key] !== undefined) {
+                        el.value = parseFloat(d[key]).toFixed(2);
+                    }
+                });
+            })
+            .catch(function() {});
+    }
+
+    function setupDensityForm() {
+        document.getElementById('saveDensityBtn').addEventListener('click', function() {
+            var data = {};
+            Object.keys(DENSITY_MAP).forEach(function(key) {
+                var el = document.getElementById(DENSITY_MAP[key]);
+                data[key] = parseFloat(el.value) || 1.60;
+            });
+
+            var btn = this;
+            btn.disabled = true;
+            btn.textContent = '저장 중...';
+
+            db.collection('settings').doc('solutionDensity').set(data)
+                .then(function() {
+                    alert('무게비중이 저장되었습니다.');
+                })
+                .catch(function(err) {
+                    alert('저장 실패: ' + err.message);
+                })
+                .finally(function() {
+                    btn.disabled = false;
+                    btn.textContent = '저장';
+                });
+        });
+    }
+
+    // ==========================================
+    // PROJECT MANAGEMENT
+    // ==========================================
+    var projectEditId = null;
+
+    function loadProjects() {
+        var tbody = document.getElementById('projectTableBody');
+        tbody.innerHTML = '<tr><td colspan="4" class="admin-loading">불러오는 중...</td></tr>';
+
+        db.collection('projects').orderBy('order', 'asc').onSnapshot(function(snapshot) {
+            if (snapshot.empty) {
+                tbody.innerHTML = '';
+                document.getElementById('projectEmpty').style.display = 'block';
+                document.querySelector('.project-table-wrap').style.display = 'none';
+                return;
+            }
+            document.getElementById('projectEmpty').style.display = 'none';
+            document.querySelector('.project-table-wrap').style.display = 'block';
+
+            tbody.innerHTML = '';
+            snapshot.forEach(function(doc) {
+                var d = doc.data();
+                var tr = document.createElement('tr');
+                tr.innerHTML =
+                    '<td>' + escapeHtml(d.title || '') + '</td>' +
+                    '<td>' + escapeHtml(d.solution || '') + '</td>' +
+                    '<td class="hide-mobile">' + escapeHtml(d.location || '') + '</td>' +
+                    '<td>' +
+                        '<div class="admin-table__actions">' +
+                            '<button class="btn btn-sm btn-secondary" data-edit-project="' + doc.id + '">수정</button>' +
+                            '<button class="btn btn-sm btn-danger" data-delete-project="' + doc.id + '">삭제</button>' +
+                        '</div>' +
+                    '</td>';
+                tbody.appendChild(tr);
+            });
+
+            tbody.querySelectorAll('[data-edit-project]').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    editProject(this.dataset.editProject);
+                });
+            });
+            tbody.querySelectorAll('[data-delete-project]').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    deleteProject(this.dataset.deleteProject);
+                });
+            });
+        });
+    }
+
+    function setupProjectForm() {
+        var modal = document.getElementById('projectModal');
+        var form = document.getElementById('projectForm');
+
+        document.getElementById('addProjectBtn').addEventListener('click', function() {
+            projectEditId = null;
+            form.reset();
+            document.getElementById('projectModalTitle').textContent = '시공 사례 추가';
+            modal.classList.add('active');
+        });
+
+        setupModalClose(modal);
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var solution = document.getElementById('projectSolution').value;
+            var categoryMap = {
+                'SoilAroma-G': 'soilaroma',
+                'EcoRide-G': 'ecoride',
+                'TechLane-G': 'techlane',
+                'EcoField-G': 'ecofield',
+                'GaiaCure-G': 'gaiacure'
+            };
+
+            var data = {
+                title: document.getElementById('projectTitle').value,
+                location: document.getElementById('projectLocation').value,
+                solution: solution,
+                category: categoryMap[solution] || 'soilaroma',
+                client: document.getElementById('projectClient').value,
+                result: document.getElementById('projectResult').value,
+                imageUrl: document.getElementById('projectImageUrl').value,
+                order: parseInt(document.getElementById('projectOrder').value) || 0,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            };
+
+            var submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+
+            var promise;
+            if (projectEditId) {
+                promise = db.collection('projects').doc(projectEditId).update(data);
+            } else {
+                data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+                promise = db.collection('projects').add(data);
+            }
+
+            promise.then(function() {
+                modal.classList.remove('active');
+                form.reset();
+            }).catch(function(err) {
+                alert('저장 실패: ' + err.message);
+            }).finally(function() {
+                submitBtn.disabled = false;
+            });
+        });
+    }
+
+    function editProject(id) {
+        db.collection('projects').doc(id).get().then(function(doc) {
+            if (!doc.exists) return;
+            var d = doc.data();
+            projectEditId = id;
+            document.getElementById('projectTitle').value = d.title || '';
+            document.getElementById('projectLocation').value = d.location || '';
+            document.getElementById('projectSolution').value = d.solution || 'SoilAroma-G';
+            document.getElementById('projectClient').value = d.client || '';
+            document.getElementById('projectResult').value = d.result || '';
+            document.getElementById('projectImageUrl').value = d.imageUrl || '';
+            document.getElementById('projectOrder').value = d.order || 0;
+            document.getElementById('projectModalTitle').textContent = '시공 사례 수정';
+            document.getElementById('projectModal').classList.add('active');
+        });
+    }
+
+    function deleteProject(id) {
+        if (!confirm('이 시공 사례를 삭제하시겠습니까?')) return;
+        db.collection('projects').doc(id).delete().catch(function(err) {
+            alert('삭제 실패: ' + err.message);
+        });
+    }
+
+    // ==========================================
+    // CERTIFICATE MANAGEMENT
+    // ==========================================
+    var certEditId = null;
+
+    function loadCerts() {
+        var tbody = document.getElementById('certTableBody');
+        tbody.innerHTML = '<tr><td colspan="4" class="admin-loading">불러오는 중...</td></tr>';
+
+        db.collection('certificates').orderBy('order', 'asc').onSnapshot(function(snapshot) {
+            if (snapshot.empty) {
+                tbody.innerHTML = '';
+                document.getElementById('certEmpty').style.display = 'block';
+                document.querySelector('.cert-table-wrap').style.display = 'none';
+                return;
+            }
+            document.getElementById('certEmpty').style.display = 'none';
+            document.querySelector('.cert-table-wrap').style.display = 'block';
+
+            tbody.innerHTML = '';
+            snapshot.forEach(function(doc) {
+                var d = doc.data();
+                var tr = document.createElement('tr');
+                tr.innerHTML =
+                    '<td>' + escapeHtml(d.title || '') + '</td>' +
+                    '<td>' + escapeHtml(d.institute || '') + '</td>' +
+                    '<td class="hide-mobile">' + escapeHtml(d.date || '') + '</td>' +
+                    '<td>' +
+                        '<div class="admin-table__actions">' +
+                            '<button class="btn btn-sm btn-secondary" data-edit-cert="' + doc.id + '">수정</button>' +
+                            '<button class="btn btn-sm btn-danger" data-delete-cert="' + doc.id + '">삭제</button>' +
+                        '</div>' +
+                    '</td>';
+                tbody.appendChild(tr);
+            });
+
+            tbody.querySelectorAll('[data-edit-cert]').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    editCert(this.dataset.editCert);
+                });
+            });
+            tbody.querySelectorAll('[data-delete-cert]').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    deleteCert(this.dataset.deleteCert);
+                });
+            });
+        });
+    }
+
+    function setupCertForm() {
+        var modal = document.getElementById('certModal');
+        var form = document.getElementById('certForm');
+
+        document.getElementById('addCertBtn').addEventListener('click', function() {
+            certEditId = null;
+            form.reset();
+            document.getElementById('certModalTitle').textContent = '성적서 추가';
+            modal.classList.add('active');
+        });
+
+        setupModalClose(modal);
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var dateInput = document.getElementById('certDate').value;
+            var dateFormatted = '';
+            if (dateInput) {
+                var parts = dateInput.split('-');
+                dateFormatted = parts[0] + '.' + parts[1] + '.' + parts[2];
+            }
+
+            var data = {
+                title: document.getElementById('certTitle').value,
+                tag: document.getElementById('certTag').value,
+                institute: document.getElementById('certInstitute').value,
+                date: dateFormatted,
+                dateRaw: dateInput,
+                desc: document.getElementById('certDesc').value,
+                imageUrl: document.getElementById('certImageUrl').value,
+                order: parseInt(document.getElementById('certOrder').value) || 0,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            };
+
+            var submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+
+            var promise;
+            if (certEditId) {
+                promise = db.collection('certificates').doc(certEditId).update(data);
+            } else {
+                data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+                promise = db.collection('certificates').add(data);
+            }
+
+            promise.then(function() {
+                modal.classList.remove('active');
+                form.reset();
+            }).catch(function(err) {
+                alert('저장 실패: ' + err.message);
+            }).finally(function() {
+                submitBtn.disabled = false;
+            });
+        });
+    }
+
+    function editCert(id) {
+        db.collection('certificates').doc(id).get().then(function(doc) {
+            if (!doc.exists) return;
+            var d = doc.data();
+            certEditId = id;
+            document.getElementById('certTitle').value = d.title || '';
+            document.getElementById('certTag').value = d.tag || '';
+            document.getElementById('certInstitute').value = d.institute || '';
+            document.getElementById('certDate').value = d.dateRaw || '';
+            document.getElementById('certDesc').value = d.desc || '';
+            document.getElementById('certImageUrl').value = d.imageUrl || '';
+            document.getElementById('certOrder').value = d.order || 0;
+            document.getElementById('certModalTitle').textContent = '성적서 수정';
+            document.getElementById('certModal').classList.add('active');
+        });
+    }
+
+    function deleteCert(id) {
+        if (!confirm('이 성적서를 삭제하시겠습니까?')) return;
+        db.collection('certificates').doc(id).delete().catch(function(err) {
+            alert('삭제 실패: ' + err.message);
+        });
+    }
+
+    // ========== SHARED HELPERS ==========
+    function setupModalClose(modal) {
+        modal.querySelectorAll('.admin-modal__close').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                modal.classList.remove('active');
+            });
+        });
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) modal.classList.remove('active');
+        });
+    }
+
     function escapeHtml(str) {
         var div = document.createElement('div');
         div.textContent = str;

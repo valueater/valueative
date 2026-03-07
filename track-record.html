@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SMGM 예상 물량 산출 - CORElite-G 솔루션별 소요량을 간편하게 계산하세요">
+    <title>Estimator | SMGM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <div class="sunlight-overlay" aria-hidden="true"></div>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav__logo">SM<span class="nav__logo-gm">GM</span></a>
+                <div class="nav__mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav__menu">
+                    <li class="nav__item"><a href="company.html" class="nav__link">COMPANY</a></li>
+                    <li class="nav__item"><a href="brand.html" class="nav__link">BRAND</a></li>
+                    <li class="nav__item nav__dropdown">
+                        <a href="solutions.html" class="nav__link nav__link-with-dropdown">SOLUTION</a>
+                        <button class="nav__dropdown-icon" aria-label="Toggle solution menu">
+                            <span>▼</span>
+                        </button>
+                        <ul class="nav__dropdown-menu">
+                            <li class="nav__dropdown-item"><a href="solution-soilaroma.html" class="nav__dropdown-link">SoilAroma-G</a></li>
+                            <li class="nav__dropdown-item"><a href="solution-ecoride.html" class="nav__dropdown-link">EcoRide-G</a></li>
+                            <li class="nav__dropdown-item"><a href="solution-techlane.html" class="nav__dropdown-link">TechLane-G</a></li>
+                            <li class="nav__dropdown-item"><a href="solution-ecofield.html" class="nav__dropdown-link">EcoField-G</a></li>
+                            <li class="nav__dropdown-item"><a href="solution-gaiacure.html" class="nav__dropdown-link">GaiaCure-G</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item nav__dropdown">
+                        <a href="#" class="nav__link nav__link-with-dropdown">DATA LAB</a>
+                        <button class="nav__dropdown-icon" aria-label="Toggle data lab menu">
+                            <span>▼</span>
+                        </button>
+                        <ul class="nav__dropdown-menu">
+                            <li class="nav__dropdown-item"><a href="performance.html" class="nav__dropdown-link">Performance</a></li>
+                            <li class="nav__dropdown-item"><a href="track-record.html" class="nav__dropdown-link">Estimator</a></li>
+                            <li class="nav__dropdown-item"><a href="projects.html" class="nav__dropdown-link">Projects</a></li>
+                            <li class="nav__dropdown-item"><a href="certificates.html" class="nav__dropdown-link">Certificates</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="news.html" class="nav__link">NEWS</a></li>
+                    <li class="nav__item"><button class="nav__contact-btn open-contact-modal">CONTACT</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main" style="padding-top: var(--header-height);">
+        <!-- Hero -->
+        <section class="hero hero--dark" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); position: relative; overflow: hidden;">
+            <div style="position: absolute; inset: 0; background: url('img-calc-hero.jpg') center/cover no-repeat; opacity: 0.3;"></div>
+            <div class="container" style="position: relative; z-index: 1;">
+                <span class="badge">Quantity Estimator</span>
+                <h1 class="hero__title" style="margin-top: 16px;">예상 물량 산출</h1>
+                <p class="hero__subtitle">시공 면적별 CORElite-G 소요량을 간편하게 계산하세요</p>
+            </div>
+        </section>
+
+        <!-- Solution Selection -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center mb-lg">
+                    <span class="badge">Solution</span>
+                    <h2 class="section__title mt-md">솔루션 선택</h2>
+                    <p class="section__desc">적용할 솔루션을 선택하면 무게비중이 자동으로 설정됩니다.</p>
+                </div>
+                <div class="calc-solution-pills" id="solutionPills">
+                    <button class="calc-solution-pill" data-solution="SoilAroma-G">SoilAroma-G</button>
+                    <button class="calc-solution-pill" data-solution="EcoRide-G">EcoRide-G</button>
+                    <button class="calc-solution-pill" data-solution="TechLane-G">TechLane-G</button>
+                    <button class="calc-solution-pill" data-solution="EcoField-G">EcoField-G</button>
+                    <button class="calc-solution-pill" data-solution="GaiaCure-G">GaiaCure-G</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator -->
+        <section class="section" style="background-color: var(--color-gray-light);">
+            <div class="container">
+                <div class="text-center mb-lg">
+                    <span class="badge">Calculator</span>
+                    <h2 class="section__title mt-md">면적별 물량 비교</h2>
+                </div>
+                <div class="calc-formula animate-on-scroll">
+                    <span>적용길이(m) &times; 적용폭(m) &times; 적용두께(m) &times; 무게비중 = <strong>톤(ton)</strong></span>
+                    <span class="calc-formula__divider">|</span>
+                    <span>톤 &divide; 무게비중 = <strong>루베(m&sup3;)</strong></span>
+                </div>
+
+                <div class="calc-grid">
+                    <!-- Area A -->
+                    <div class="calc-card animate-on-scroll">
+                        <div class="calc-card__header">면적 A</div>
+                        <div class="calc-card__body">
+                            <div class="calc-field">
+                                <label class="calc-field__label">적용 길이</label>
+                                <div class="calc-field__wrap">
+                                    <input type="number" class="calc-field__input" data-area="A" data-param="length" step="any" min="0" placeholder="0">
+                                    <span class="calc-field__unit">m</span>
+                                </div>
+                            </div>
+                            <div class="calc-field">
+                                <label class="calc-field__label">적용 폭</label>
+                                <div class="calc-field__wrap">
+                                    <input type="number" class="calc-field__input" data-area="A" data-param="width" step="any" min="0" placeholder="0">
+                                    <span class="calc-field__unit">m</span>
+                                </div>
+                            </div>
+                            <div class="calc-field">
+                                <label class="calc-field__label">적용 두께</label>
+                                <div class="calc-field__wrap">
+                                    <input type="number" class="calc-field__input" data-area="A" data-param="depth" step="any" min="0" placeholder="0">
+                                    <span class="calc-field__unit">m</span>
+                                </div>
+                            </div>
+                            <div class="calc-field calc-field--readonly">
+                                <label class="calc-field__label">무게비중</label>
+                                <input type="hidden" data-area="A" data-param="density" value="1.60">
+                                <div class="calc-field__display">SMGM 기준적용</div>
+                                <p class="calc-field__note calc-field__note--sub">실견적시 협의</p>
+                            </div>
+                            <button class="calc-btn" data-area="A">계산하기</button>
+                            <div class="calc-result" data-area="A">
+                                <div class="calc-result__item">
+                                    <span class="calc-result__value" data-result="ton">-</span>
+                                    <span class="calc-result__unit">ton</span>
+                                </div>
+                                <div class="calc-result__item">
+                                    <span class="calc-result__value" data-result="cube">-</span>
+                                    <span class="calc-result__unit">m&sup3;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Area B -->
+                    <div class="calc-card animate-on-scroll">
+                        <div class="calc-card__header">면적 B</div>
+                        <div class="calc-card__body">
+                            <div class="calc-field">
+                                <label class="calc-field__label">적용 길이</label>
+                                <div class="calc-field__wrap">
+                                    <input type="number" class="calc-field__input" data-area="B" data-param="length" step="any" min="0" placeholder="0">
+                                    <span class="calc-field__unit">m</span>
+                                </div>
+                            </div>
+                            <div class="calc-field">
+                                <label class="calc-field__label">적용 폭</label>
+                                <div class="calc-field__wrap">
+                                    <input type="number" class="calc-field__input" data-area="B" data-param="width" step="any" min="0" placeholder="0">
+                                    <span class="calc-field__unit">m</span>
+                                </div>
+                            </div>
+                            <div class="calc-field">
+                                <label class="calc-field__label">적용 두께</label>
+                                <div class="calc-field__wrap">
+                                    <input type="number" class="calc-field__input" data-area="B" data-param="depth" step="any" min="0" placeholder="0">
+                                    <span class="calc-field__unit">m</span>
+                                </div>
+                            </div>
+                            <div class="calc-field calc-field--readonly">
+                                <label class="calc-field__label">무게비중</label>
+                                <input type="hidden" data-area="B" data-param="density" value="1.60">
+                                <div class="calc-field__display">SMGM 기준적용</div>
+                                <p class="calc-field__note calc-field__note--sub">실견적시 협의</p>
+                            </div>
+                            <button class="calc-btn" data-area="B">계산하기</button>
+                            <div class="calc-result" data-area="B">
+                                <div class="calc-result__item">
+                                    <span class="calc-result__value" data-result="ton">-</span>
+                                    <span class="calc-result__unit">ton</span>
+                                </div>
+                                <div class="calc-result__item">
+                                    <span class="calc-result__value" data-result="cube">-</span>
+                                    <span class="calc-result__unit">m&sup3;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Area C -->
+                    <div class="calc-card animate-on-scroll">
+                        <div class="calc-card__header">면적 C</div>
+                        <div class="calc-card__body">
+                            <div class="calc-field">
+                                <label class="calc-field__label">적용 길이</label>
+                                <div class="calc-field__wrap">
+                                    <input type="number" class="calc-field__input" data-area="C" data-param="length" step="any" min="0" placeholder="0">
+                                    <span class="calc-field__unit">m</span>
+                                </div>
+                            </div>
+                            <div class="calc-field">
+                                <label class="calc-field__label">적용 폭</label>
+                                <div class="calc-field__wrap">
+                                    <input type="number" class="calc-field__input" data-area="C" data-param="width" step="any" min="0" placeholder="0">
+                                    <span class="calc-field__unit">m</span>
+                                </div>
+                            </div>
+                            <div class="calc-field">
+                                <label class="calc-field__label">적용 두께</label>
+                                <div class="calc-field__wrap">
+                                    <input type="number" class="calc-field__input" data-area="C" data-param="depth" step="any" min="0" placeholder="0">
+                                    <span class="calc-field__unit">m</span>
+                                </div>
+                            </div>
+                            <div class="calc-field calc-field--readonly">
+                                <label class="calc-field__label">무게비중</label>
+                                <input type="hidden" data-area="C" data-param="density" value="1.60">
+                                <div class="calc-field__display">SMGM 기준적용</div>
+                                <p class="calc-field__note calc-field__note--sub">실견적시 협의</p>
+                            </div>
+                            <button class="calc-btn" data-area="C">계산하기</button>
+                            <div class="calc-result" data-area="C">
+                                <div class="calc-result__item">
+                                    <span class="calc-result__value" data-result="ton">-</span>
+                                    <span class="calc-result__unit">ton</span>
+                                </div>
+                                <div class="calc-result__item">
+                                    <span class="calc-result__value" data-result="cube">-</span>
+                                    <span class="calc-result__unit">m&sup3;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total -->
+                <div class="calc-total animate-on-scroll" id="calcTotal">
+                    <div class="calc-total__label">합계</div>
+                    <div class="calc-total__items">
+                        <div class="calc-total__item">
+                            <span class="calc-total__value" id="totalTon">0.00</span>
+                            <span class="calc-total__unit">ton</span>
+                        </div>
+                        <div class="calc-total__divider">/</div>
+                        <div class="calc-total__item">
+                            <span class="calc-total__value" id="totalCube">0.00</span>
+                            <span class="calc-total__unit">m&sup3;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Request -->
+        <section class="section">
+            <div class="container text-center">
+                <h2 class="section__title">견적 요청</h2>
+                <p class="section__desc" style="margin-bottom: 32px;">계산된 물량을 기반으로 즉시 견적을 요청하세요.</p>
+                <button class="calc-quote-btn" id="quoteRequestBtn">이 물량으로 견적 요청</button>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2 class="cta__title">맞춤 물량 상담</h2>
+                    <p class="cta__subtitle">복잡한 현장 조건이나 대량 물량이 필요하신 경우 전문가에게 문의하세요</p>
+                    <button class="btn btn-primary btn-lg open-contact-modal">Touch US</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__logo">SM<span class="footer__logo-gm">GM</span></div>
+                <p class="footer__tagline">SMGM의 CORElite-G는 지속가능한 지구의 내일에 기여합니다.</p>
+            </div>
+            <div class="footer__copyright">
+                <div class="footer__copyright-row">&copy; 2025 주식회사 에스엠골드마인 (SMGM). All rights reserved. 사업자등록번호: 702-86-03387 | 대표: 박수운</div>
+                <div class="footer__legal">All content including text, images, design, and logos are protected by copyright law. Unauthorized reproduction, distribution, or derivative works are strictly prohibited.</div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 class="modal__title" id="contactModalTitle">Contact</h2>
+                <span class="modal__close">&times;</span>
+            </div>
+            <form id="contactForm" class="modal__form">
+                <div class="form__group"><label for="name" class="form__label">이름 / 담당자</label><input type="text" id="name" class="form__input" required><p class="form__error-text"></p></div>
+                <div class="form__group"><label for="email" class="form__label">이메일</label><input type="email" id="email" class="form__input" required><p class="form__error-text"></p></div>
+                <div class="form__group"><label for="phone" class="form__label">연락처</label><input type="tel" id="phone" class="form__input" required><p class="form__error-text"></p></div>
+                <div class="form__group">
+                    <label for="solution" class="form__label">관심 솔루션</label>
+                    <select id="solution" class="form__select" required>
+                        <option value="">선택해주세요</option>
+                        <option value="SoilAroma-G">SoilAroma-G (흙향기e지)</option>
+                        <option value="EcoRide-G">EcoRide-G (에코라이더e지)</option>
+                        <option value="TechLane-G">TechLane-G (테크레인e지)</option>
+                        <option value="EcoField-G">EcoField-G (에코필드e지)</option>
+                        <option value="GaiaCure-G">GaiaCure-G (흙살림e지)</option>
+                        <option value="기타">기타</option>
+                    </select>
+                    <p class="form__error-text"></p>
+                </div>
+                <div class="form__group"><label for="message" class="form__label">문의 내용</label><textarea id="message" class="form__textarea" rows="5" required></textarea><p class="form__error-text"></p><span class="form__placeholder">프로젝트 규모, 예상 일정, 기타 문의사항을 자유롭게 작성해주세요.</span></div>
+                <button type="submit" class="form__submit">Touch Us</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/popup.js"></script>
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/anim.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

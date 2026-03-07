@@ -97,6 +97,8 @@ body {
     padding: 0 24px;
     z-index: 99;
     gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .admin-tab {
@@ -111,6 +113,8 @@ body {
     border-bottom: 2px solid transparent;
     transition: all 0.2s;
     position: relative;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .admin-tab:hover { color: var(--admin-text); }
@@ -422,6 +426,21 @@ body {
     padding: 40px;
     color: var(--admin-text-light);
     font-size: 14px;
+}
+
+/* ========== CARD FORM (Density) ========== */
+.admin-card-form {
+    background: var(--admin-card);
+    border-radius: 12px;
+    border: 1px solid var(--admin-border);
+    padding: 24px;
+}
+
+.admin-density-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
 }
 
 /* ========== RESPONSIVE ========== */

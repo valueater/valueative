@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SMGM CORElite-G 성능 분석 - 원적외선 방사율 0.922, 중금속 불검출, 공인기관 시험 성적 데이터. 검증된 적토이암 소재">
+    <meta name="description" content="SMGM CORElite-G 성능 분석 - 원적외선 방사율 0.922, 중금속 불검출, 8건 공인시험 성적. 검증된 적토이암 소재">
     <title>PERFORMANCE | SMGM</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
                     <li class="nav__item nav__dropdown">
                         <a href="solutions.html" class="nav__link nav__link-with-dropdown">SOLUTION</a>
                         <button class="nav__dropdown-icon" aria-label="Toggle solution menu">
-                            <span>▼</span>
+                            <span>&#9660;</span>
                         </button>
                         <ul class="nav__dropdown-menu">
                             <li class="nav__dropdown-item"><a href="solution-soilaroma.html" class="nav__dropdown-link">SoilAroma-G</a></li>
@@ -35,15 +35,27 @@
                             <li class="nav__dropdown-item"><a href="solution-gaiacure.html" class="nav__dropdown-link">GaiaCure-G</a></li>
                         </ul>
                     </li>
-                    <li class="nav__item"><a href="performance.html" class="nav__link">PERFORMANCE</a></li>
+                    <li class="nav__item nav__dropdown">
+                        <a href="#" class="nav__link nav__link-with-dropdown">DATA LAB</a>
+                        <button class="nav__dropdown-icon" aria-label="Toggle data lab menu">
+                            <span>▼</span>
+                        </button>
+                        <ul class="nav__dropdown-menu">
+                            <li class="nav__dropdown-item"><a href="performance.html" class="nav__dropdown-link">Performance</a></li>
+                            <li class="nav__dropdown-item"><a href="track-record.html" class="nav__dropdown-link">Estimator</a></li>
+                            <li class="nav__dropdown-item"><a href="projects.html" class="nav__dropdown-link">Projects</a></li>
+                            <li class="nav__dropdown-item"><a href="certificates.html" class="nav__dropdown-link">Certificates</a></li>
+                        </ul>
+                    </li>
                     <li class="nav__item"><a href="news.html" class="nav__link">NEWS</a></li>
                     <li class="nav__item"><button class="nav__contact-btn open-contact-modal">CONTACT</button></li>
                 </ul>
             </nav>
         </div>
     </header>
-    
+
     <main class="main" style="padding-top: var(--header-height);">
+        <!-- Hero -->
         <section class="solution-hero" style="background-image: url('img-performance-hero.jpg');">
             <div class="container">
                 <span class="badge">Performance Analysis</span>
@@ -56,132 +68,387 @@
                 <p class="hero__subtitle" style="font-size: 18px;">독보적인 분석 데이터가 기능성 천연 자원의 새로운 기준</p>
             </div>
         </section>
-        
-        <!-- Section 1: Overview -->
+
+        <!-- Section 1: At a Glance -->
         <section class="section" style="position: relative;">
             <div class="molecules-bg" aria-hidden="true"></div>
             <div class="container">
                 <div class="text-center mb-lg">
-                    <span class="badge">Overview</span>
-                    <h2 class="section__title mt-md">SMK CORElite-G 성능 개요</h2>
-                    <p class="section__description mt-sm">자연 유래 광물질의 기능성과 특징을 보유</p>
+                    <span class="badge">At a Glance</span>
+                    <h2 class="section__title mt-md">SMGM 적토이암 시험 성능 총괄</h2>
+                    <p class="section__description mt-sm">국내 공인 시험·연구 기관의 검증 데이터</p>
                 </div>
 
-                <p class="text-center mb-xl" style="font-size: 16px; color: var(--color-gray-dark);">SMK CORElite-G는 화강암 계열 광물질 기능과 성분을 보유하고 있습니다</p>
+                <div class="perf-glance-grid">
+                    <div class="perf-glance-card">
+                        <div class="perf-glance-value" data-count="8" data-decimals="0">8</div>
+                        <div class="perf-glance-label">공인시험 성적서</div>
+                    </div>
+                    <div class="perf-glance-card">
+                        <div class="perf-glance-value" data-count="5" data-decimals="0">5</div>
+                        <div class="perf-glance-label">시험·연구기관</div>
+                    </div>
+                    <div class="perf-glance-card">
+                        <div class="perf-glance-value" data-count="485" data-decimals="0" data-suffix="+">485+</div>
+                        <div class="perf-glance-label">총 시험 항목</div>
+                    </div>
+                    <div class="perf-glance-card">
+                        <div class="perf-glance-value" data-count="0" data-decimals="0">0</div>
+                        <div class="perf-glance-label">유해물질 기준 초과</div>
+                    </div>
+                </div>
 
-                <div class="overview-performance-grid">
-                    <div class="overview-performance-card">
-                        <div class="overview-performance-value" data-count="7.07" data-prefix="K₂O " data-suffix="%" data-decimals="2">K₂O 7.07%</div>
-                        <div class="overview-performance-label">광물질(ilite) 특성</div>
-                    </div>
-                    <div class="overview-performance-card">
-                        <div class="overview-performance-value" data-count="8.66" data-prefix="Fe₂O₃ " data-suffix="%" data-decimals="2">Fe₂O₃ 8.66%</div>
-                        <div class="overview-performance-label">적색 특성</div>
-                    </div>
-                    <div class="overview-performance-card">
-                        <div class="overview-performance-value" data-count="0.922" data-decimals="3">0.922</div>
-                        <div class="overview-performance-label">원적외선 방사율</div>
-                    </div>
-                    <div class="overview-performance-card">
-                        <div class="overview-performance-value" data-count="160" data-decimals="0">160</div>
-                        <div class="overview-performance-label">음이온 방출</div>
-                    </div>
+                <div class="perf-institutes">
+                    <span class="perf-institute-tag">KIGAM 한국지질자원연구원</span>
+                    <span class="perf-institute-tag">KIFA 한국원적외선협회</span>
+                    <span class="perf-institute-tag">KTR 한국화학융합시험연구원</span>
+                    <span class="perf-institute-tag">KICET 한국세라믹기술원</span>
+                    <span class="perf-institute-tag">강원대 친환경농산물안전성센터</span>
                 </div>
             </div>
         </section>
-        
-        <!-- Section 2: Chemical Analysis -->
+
+        <!-- Section 2: Mineral Composition (XRD) -->
         <section class="section section-gray">
             <div class="container">
                 <div class="text-center mb-lg">
-                    <span class="badge">Chemical Analysis</span>
-                    <h2 class="section__title mt-md">성분 분석</h2>
+                    <span class="badge">Mineral Composition</span>
+                    <h2 class="section__title mt-md">광물 조성 분석 (XRD)</h2>
+                    <p class="section__description mt-sm">적토이암의 결정질 광물 구성비</p>
                 </div>
-                
-                <div class="institute-banner-3d">한국세라믹기술원</div>
-                
-                <div class="chemical-analysis-grid">
-                    <div class="chemical-analysis-card">
-                        <h3 class="chemical-analysis-title">기본 성분</h3>
-                        <p class="chemical-analysis-desc">SiO₂ (이산화규소)와 Al₂O₃ (알루미나)로 구성된 기본 골격</p>
-                        <div class="chemical-analysis-values">
-                            <span class="chemical-value" data-count="52.23" data-prefix="SiO₂ " data-suffix="%" data-decimals="2">SiO₂ 52.23%</span>
-                            <span class="chemical-separator">+</span>
-                            <span class="chemical-value" data-count="19.43" data-prefix="Al₂O₃ " data-suffix="%" data-decimals="2">Al₂O₃ 19.43%</span>
+
+                <div class="institute-banner-3d">KIGAM 한국지질자원연구원</div>
+
+                <div class="perf-mineral-grid">
+                    <div class="perf-mineral-card perf-mineral-primary">
+                        <div class="perf-mineral-name">백운모 / 일라이트</div>
+                        <div class="perf-mineral-bar-wrap">
+                            <div class="perf-mineral-bar" style="--bar-width: 39.8%;" data-value="39.8"></div>
                         </div>
+                        <div class="perf-mineral-value" data-count="39.8" data-suffix="%" data-decimals="1">39.8%</div>
+                        <div class="perf-mineral-formula">KAl&#8322;Si&#8323;AlO&#8321;&#8320;(OH)&#8322;</div>
                     </div>
-                    
-                    <div class="chemical-analysis-card">
-                        <h3 class="chemical-analysis-title">기능성 성분</h3>
-                        <p class="chemical-analysis-desc">K₂O (일라이트 지표), Fe₂O₃ (적색 특성), MgO (내구성 기여)</p>
-                        <div class="chemical-analysis-values">
-                            <span class="chemical-value" data-count="7.07" data-prefix="K₂O " data-suffix="%" data-decimals="2">K₂O 7.07%</span>
-                            <span class="chemical-separator">+</span>
-                            <span class="chemical-value" data-count="8.66" data-prefix="Fe₂O₃ " data-suffix="%" data-decimals="2">Fe₂O₃ 8.66%</span>
+                    <div class="perf-mineral-card">
+                        <div class="perf-mineral-name">석영</div>
+                        <div class="perf-mineral-bar-wrap">
+                            <div class="perf-mineral-bar" style="--bar-width: 32.0%;" data-value="32.0"></div>
                         </div>
+                        <div class="perf-mineral-value" data-count="32.0" data-suffix="%" data-decimals="1">32.0%</div>
+                        <div class="perf-mineral-formula">SiO&#8322;</div>
+                    </div>
+                    <div class="perf-mineral-card">
+                        <div class="perf-mineral-name">조장석</div>
+                        <div class="perf-mineral-bar-wrap">
+                            <div class="perf-mineral-bar" style="--bar-width: 10.7%;" data-value="10.7"></div>
+                        </div>
+                        <div class="perf-mineral-value" data-count="10.7" data-suffix="%" data-decimals="1">10.7%</div>
+                        <div class="perf-mineral-formula">NaAlSi&#8323;O&#8328;</div>
+                    </div>
+                    <div class="perf-mineral-card">
+                        <div class="perf-mineral-name">방해석</div>
+                        <div class="perf-mineral-bar-wrap">
+                            <div class="perf-mineral-bar" style="--bar-width: 6.9%;" data-value="6.9"></div>
+                        </div>
+                        <div class="perf-mineral-value" data-count="6.9" data-suffix="%" data-decimals="1">6.9%</div>
+                        <div class="perf-mineral-formula">CaCO&#8323;</div>
+                    </div>
+                    <div class="perf-mineral-card">
+                        <div class="perf-mineral-name">적철석</div>
+                        <div class="perf-mineral-bar-wrap">
+                            <div class="perf-mineral-bar" style="--bar-width: 5.4%;" data-value="5.4"></div>
+                        </div>
+                        <div class="perf-mineral-value" data-count="5.4" data-suffix="%" data-decimals="1">5.4%</div>
+                        <div class="perf-mineral-formula">Fe&#8322;O&#8323;</div>
+                    </div>
+                    <div class="perf-mineral-card">
+                        <div class="perf-mineral-name">녹니석</div>
+                        <div class="perf-mineral-bar-wrap">
+                            <div class="perf-mineral-bar" style="--bar-width: 5.3%;" data-value="5.3"></div>
+                        </div>
+                        <div class="perf-mineral-value" data-count="5.3" data-suffix="%" data-decimals="1">5.3%</div>
+                        <div class="perf-mineral-formula">Mg&#8322;Al&#8323;(Si&#8323;Al)O&#8321;&#8320;(O)&#8328;</div>
                     </div>
                 </div>
+
+                <p class="perf-mineral-note">일라이트(Illite)가 최대 39.8%를 차지하며, 이는 원적외선 방사 및 음이온 방출의 핵심 광물입니다. 산지: 남공주 산업단지</p>
             </div>
         </section>
-        
-        <!-- Section 3: Performance Test -->
+
+        <!-- Section 3: Chemical Analysis (XRF) -->
         <section class="section">
             <div class="container">
                 <div class="text-center mb-lg">
-                    <span class="badge">Performance Test</span>
-                    <h2 class="section__title mt-md">물리·기능성 시험</h2>
+                    <span class="badge">Chemical Analysis</span>
+                    <h2 class="section__title mt-md">화학 성분 분석 (XRF)</h2>
+                    <p class="section__description mt-sm">산화물 기준 주요 원소 조성</p>
                 </div>
-                
-                <div class="institute-banner-3d">한국원적외선응용평가원</div>
-                
-                <div class="performance-test-grid">
-                    <div class="performance-test-card">
-                        <h3 class="performance-test-title">원적외선 방사율 0.922</h3>
-                        <p class="performance-test-desc">혈액순환 촉진 및 신체 치유 효과</p>
+
+                <div class="institute-banner-3d">KIGAM 한국지질자원연구원</div>
+
+                <div class="perf-xrf-grid">
+                    <div class="perf-xrf-card perf-xrf-highlight">
+                        <div class="perf-xrf-formula">SiO&#8322;</div>
+                        <div class="perf-xrf-value" data-count="45.65" data-suffix="%" data-decimals="2">45.65%</div>
+                        <div class="perf-xrf-name">이산화규소</div>
                     </div>
-                    <div class="performance-test-card">
-                        <h3 class="performance-test-title">음이온 방출량 160</h3>
-                        <p class="performance-test-desc">가장 안전하고 이상적인 프리미엄 수치</p>
+                    <div class="perf-xrf-card perf-xrf-highlight">
+                        <div class="perf-xrf-formula">CaO</div>
+                        <div class="perf-xrf-value" data-count="16.55" data-suffix="%" data-decimals="2">16.55%</div>
+                        <div class="perf-xrf-name">산화칼슘</div>
+                    </div>
+                    <div class="perf-xrf-card perf-xrf-highlight">
+                        <div class="perf-xrf-formula">MgO</div>
+                        <div class="perf-xrf-value" data-count="8.86" data-suffix="%" data-decimals="2">8.86%</div>
+                        <div class="perf-xrf-name">산화마그네슘</div>
+                    </div>
+                    <div class="perf-xrf-card perf-xrf-highlight">
+                        <div class="perf-xrf-formula">Al&#8322;O&#8323;</div>
+                        <div class="perf-xrf-value" data-count="8.66" data-suffix="%" data-decimals="2">8.66%</div>
+                        <div class="perf-xrf-name">알루미나</div>
+                    </div>
+                    <div class="perf-xrf-card">
+                        <div class="perf-xrf-formula">Fe&#8322;O&#8323;</div>
+                        <div class="perf-xrf-value" data-count="3.13" data-suffix="%" data-decimals="2">3.13%</div>
+                        <div class="perf-xrf-name">산화철</div>
+                    </div>
+                    <div class="perf-xrf-card">
+                        <div class="perf-xrf-formula">K&#8322;O</div>
+                        <div class="perf-xrf-value" data-count="2.09" data-suffix="%" data-decimals="2">2.09%</div>
+                        <div class="perf-xrf-name">산화칼륨</div>
+                    </div>
+                    <div class="perf-xrf-card">
+                        <div class="perf-xrf-formula">Na&#8322;O</div>
+                        <div class="perf-xrf-value" data-count="0.83" data-suffix="%" data-decimals="2">0.83%</div>
+                        <div class="perf-xrf-name">산화나트륨</div>
+                    </div>
+                    <div class="perf-xrf-card">
+                        <div class="perf-xrf-formula">TiO&#8322;</div>
+                        <div class="perf-xrf-value" data-count="0.41" data-suffix="%" data-decimals="2">0.41%</div>
+                        <div class="perf-xrf-name">이산화티탄</div>
+                    </div>
+                    <div class="perf-xrf-card">
+                        <div class="perf-xrf-formula">MnO</div>
+                        <div class="perf-xrf-value" data-count="0.08" data-suffix="%" data-decimals="2">0.08%</div>
+                        <div class="perf-xrf-name">산화망간</div>
+                    </div>
+                    <div class="perf-xrf-card">
+                        <div class="perf-xrf-formula">P&#8322;O&#8325;</div>
+                        <div class="perf-xrf-value" data-count="0.11" data-suffix="%" data-decimals="2">0.11%</div>
+                        <div class="perf-xrf-name">오산화인</div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- Section 4: Safety Test -->
+
+        <!-- Section 4: Functional Properties -->
         <section class="section section-gray">
             <div class="container">
                 <div class="text-center mb-lg">
-                    <span class="badge">Safety Test</span>
-                    <h2 class="section__title mt-md" style="line-height: 1.2; margin-bottom: 4px;">안전성 시험</h2>
-                    <p class="section__description" style="margin-top: 4px; font-size: 14px;">중금속 불검출 공인인증</p>
+                    <span class="badge">Functional Properties</span>
+                    <h2 class="section__title mt-md">기능성 시험</h2>
+                    <p class="section__description mt-sm">원적외선 방사, 음이온 방출, 일라이트 고함량</p>
                 </div>
-                
-                <div class="institute-banner-3d">KTR 유해물질 시험</div>
-                
-                <div class="heavy-metal-test">
-                    <div class="metal-items">
-                        <div class="metal-box">납(Pb)</div>
-                        <div class="metal-box">카드뮴(Cd)</div>
-                        <div class="metal-box">수은(Hg)</div>
-                        <div class="metal-box">6가 크롬</div>
-                        <div class="metal-box">비소</div>
+
+                <div class="perf-func-grid">
+                    <!-- 원적외선 -->
+                    <div class="perf-func-card">
+                        <div class="perf-func-header">
+                            <div class="institute-banner-3d" style="margin-bottom: 0;">KIFA 한국원적외선협회</div>
+                        </div>
+                        <div class="perf-func-body">
+                            <h3 class="perf-func-title">원적외선 방사</h3>
+                            <div class="perf-func-stats">
+                                <div class="perf-func-stat">
+                                    <span class="perf-func-stat-label">방사율 (5~20 &mu;m)</span>
+                                    <span class="perf-func-stat-value" data-count="0.922" data-decimals="3">0.922</span>
+                                </div>
+                                <div class="perf-func-stat">
+                                    <span class="perf-func-stat-label">방사에너지 (37&deg;C)</span>
+                                    <span class="perf-func-stat-value">3.55 &times; 10&sup2; W/m&sup2;&middot;&mu;m</span>
+                                </div>
+                            </div>
+                            <p class="perf-func-desc">혈액순환 촉진, 세포 활성화, 면역력 증진에 기여하는 수치로 일반 광물 대비 우수한 방사 성능</p>
+                        </div>
                     </div>
-                    <div class="connection-lines">
-                        <svg width="100%" height="100" viewBox="0 0 300 100">
-                            <line x1="30" y1="0" x2="150" y2="80" stroke="#e0e0e0" stroke-width="2"/>
-                            <line x1="90" y1="0" x2="150" y2="80" stroke="#e0e0e0" stroke-width="2"/>
-                            <line x1="150" y1="0" x2="150" y2="80" stroke="#e0e0e0" stroke-width="2"/>
-                            <line x1="210" y1="0" x2="150" y2="80" stroke="#e0e0e0" stroke-width="2"/>
-                            <line x1="270" y1="0" x2="150" y2="80" stroke="#e0e0e0" stroke-width="2"/>
-                        </svg>
+
+                    <!-- 음이온 -->
+                    <div class="perf-func-card">
+                        <div class="perf-func-header">
+                            <div class="institute-banner-3d" style="margin-bottom: 0;">KIFA 한국원적외선협회</div>
+                        </div>
+                        <div class="perf-func-body">
+                            <h3 class="perf-func-title">음이온 방출</h3>
+                            <div class="perf-func-stats">
+                                <div class="perf-func-stat">
+                                    <span class="perf-func-stat-label">음이온 (ION/cc)</span>
+                                    <span class="perf-func-stat-value" data-count="160" data-decimals="0">160</span>
+                                </div>
+                            </div>
+                            <p class="perf-func-desc">실내온도 25&deg;C, 습도 50% 조건에서 전하입자 측정 장치로 측정한 단위체적당 음이온 수. 안전하고 이상적인 프리미엄 수치</p>
+                        </div>
                     </div>
-                    <div class="result-box-3d">불검출</div>
+
+                    <!-- 일라이트 -->
+                    <div class="perf-func-card">
+                        <div class="perf-func-header">
+                            <div class="institute-banner-3d" style="margin-bottom: 0;">KIGAM 한국지질자원연구원</div>
+                        </div>
+                        <div class="perf-func-body">
+                            <h3 class="perf-func-title">일라이트 고함량 구조</h3>
+                            <div class="perf-func-stats">
+                                <div class="perf-func-stat">
+                                    <span class="perf-func-stat-label">Illite 함량</span>
+                                    <span class="perf-func-stat-value" data-count="39.8" data-decimals="1" data-suffix=" %">39.8 %</span>
+                                </div>
+                            </div>
+                            <p class="perf-func-desc">XRD 정량분석 결과 확인된 일라이트 39.8% 함량. 원적외선 방사와 음이온 방출 특성의 핵심 기반 성분</p>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="antibacterial-banner-3d">항균·탈취 효과 검증</div>
             </div>
         </section>
-        
+
+        <!-- Section 5: Safety Certification -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center mb-lg">
+                    <span class="badge">Safety Certification</span>
+                    <h2 class="section__title mt-md">안전성 시험</h2>
+                    <p class="section__description mt-sm">5대 중금속, 유해물질, 석면, 잔류농약 — 전 항목 적합</p>
+                </div>
+
+                <!-- 5-1: KICET 5대 중금속 용출 -->
+                <div class="perf-safety-block animate-on-scroll">
+                    <div class="institute-banner-3d">KICET 한국세라믹기술원 — 5대 중금속 용출 시험</div>
+                    <div class="perf-safety-metals">
+                        <div class="perf-safety-metal-item">
+                            <span class="perf-safety-metal-name">납 (Pb)</span>
+                            <span class="perf-safety-metal-result perf-safe">불검출</span>
+                        </div>
+                        <div class="perf-safety-metal-item">
+                            <span class="perf-safety-metal-name">카드뮴 (Cd)</span>
+                            <span class="perf-safety-metal-result perf-safe">불검출</span>
+                        </div>
+                        <div class="perf-safety-metal-item">
+                            <span class="perf-safety-metal-name">수은 (Hg)</span>
+                            <span class="perf-safety-metal-result perf-safe">불검출</span>
+                        </div>
+                        <div class="perf-safety-metal-item">
+                            <span class="perf-safety-metal-name">비소 (As)</span>
+                            <span class="perf-safety-metal-result perf-safe">불검출</span>
+                        </div>
+                        <div class="perf-safety-metal-item">
+                            <span class="perf-safety-metal-name">6가크롬 (Cr&#8310;&#8314;)</span>
+                            <span class="perf-safety-metal-result perf-safe">불검출</span>
+                        </div>
+                    </div>
+                    <p class="perf-safety-method">시험방법: 폐기물공정시험기준 (ES 06400.2)</p>
+                </div>
+
+                <!-- 5-2: KTR 석면 검사 -->
+                <div class="perf-safety-block animate-on-scroll">
+                    <div class="institute-banner-3d">KTR 한국화학융합시험연구원 — 석면 검사</div>
+                    <div class="perf-safety-asbestos">
+                        <div class="perf-safety-asbestos-result">
+                            <span class="perf-safety-big-result perf-safe">6종 석면 전부 불검출</span>
+                        </div>
+                        <p class="perf-safety-asbestos-detail">백석면, 갈석면, 청석면, 트레몰라이트 석면, 액티놀라이트 석면, 안소필라이트 석면</p>
+                    </div>
+                    <p class="perf-safety-method">시험방법: CARB Method 435 (2017.4.28.) 준용</p>
+                </div>
+
+                <!-- 5-3: 잔류농약 463종 -->
+                <div class="perf-safety-block animate-on-scroll">
+                    <div class="institute-banner-3d">강원대 산학협력단 친환경농산물안전성센터 — 잔류농약 검사</div>
+                    <div class="perf-safety-pesticide">
+                        <div class="perf-safety-pesticide-result">
+                            <span class="perf-safety-big-number" data-count="463" data-decimals="0">463</span>
+                            <span class="perf-safety-big-unit">종 잔류농약</span>
+                        </div>
+                        <div class="perf-safety-big-result perf-safe">전 항목 불검출</div>
+                    </div>
+                    <p class="perf-safety-method">대상 제품: 흙살림이-G (GaiaCure-G 원료) | 시험방법: 잔류농약검사 (2,4,6-trichlorophenol 등 463종)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Certificate Gallery -->
+        <section class="section section-gray">
+            <div class="container">
+                <div class="text-center mb-lg">
+                    <span class="badge">Certificates</span>
+                    <h2 class="section__title mt-md">Test Certificates Archive</h2>
+                    <p class="section__description mt-sm">공인기관 발급 성적서 목록</p>
+                    <button class="news-toggle-btn mt-md" id="certToggleBtn">
+                        <span class="news-toggle-text">확인하기</span>
+                        <span class="news-toggle-icon">▼</span>
+                    </button>
+                </div>
+
+                <div class="news-content" id="certContent">
+                <div class="perf-cert-grid">
+                    <div class="perf-cert-card animate-on-scroll">
+                        <div class="perf-cert-icon">XRD</div>
+                        <h4 class="perf-cert-name">XRD 광물 정량분석</h4>
+                        <p class="perf-cert-org">KIGAM 한국지질자원연구원</p>
+                        <p class="perf-cert-date">2026.02.25</p>
+                        <span class="perf-cert-id">120260086A</span>
+                    </div>
+                    <div class="perf-cert-card animate-on-scroll">
+                        <div class="perf-cert-icon">XRF</div>
+                        <h4 class="perf-cert-name">XRF 화학 성분분석</h4>
+                        <p class="perf-cert-org">KIGAM 한국지질자원연구원</p>
+                        <p class="perf-cert-date">2026.02.25</p>
+                        <span class="perf-cert-id">120260087A</span>
+                    </div>
+                    <div class="perf-cert-card animate-on-scroll">
+                        <div class="perf-cert-icon">FIR</div>
+                        <h4 class="perf-cert-name">원적외선 방사율</h4>
+                        <p class="perf-cert-org">KIFA 한국원적외선협회</p>
+                        <p class="perf-cert-date">2026.02.20</p>
+                        <span class="perf-cert-id">KFI-192</span>
+                    </div>
+                    <div class="perf-cert-card animate-on-scroll">
+                        <div class="perf-cert-icon">ION</div>
+                        <h4 class="perf-cert-name">음이온 방출량</h4>
+                        <p class="perf-cert-org">KIFA 한국원적외선협회</p>
+                        <p class="perf-cert-date">2026.02.20</p>
+                        <span class="perf-cert-id">KFIM-107</span>
+                    </div>
+                    <div class="perf-cert-card animate-on-scroll">
+                        <div class="perf-cert-icon">5HM</div>
+                        <h4 class="perf-cert-name">5대 중금속 용출</h4>
+                        <p class="perf-cert-org">KICET 한국세라믹기술원</p>
+                        <p class="perf-cert-date">2026.03.03</p>
+                        <span class="perf-cert-id">2026-0545</span>
+                    </div>
+                    <div class="perf-cert-card animate-on-scroll">
+                        <div class="perf-cert-icon">ASB</div>
+                        <h4 class="perf-cert-name">석면 검사</h4>
+                        <p class="perf-cert-org">KTR 한국화학융합시험연구원</p>
+                        <p class="perf-cert-date">2026.03.06</p>
+                        <span class="perf-cert-id">TAK-2026-027419</span>
+                    </div>
+                    <div class="perf-cert-card animate-on-scroll">
+                        <div class="perf-cert-icon">HAZ</div>
+                        <h4 class="perf-cert-name">유해물질 22항목</h4>
+                        <p class="perf-cert-org">KTR 한국화학융합시험연구원</p>
+                        <p class="perf-cert-date">2026.03.06</p>
+                        <span class="perf-cert-id">TAK-2026-027418</span>
+                    </div>
+                    <div class="perf-cert-card animate-on-scroll">
+                        <div class="perf-cert-icon">PST</div>
+                        <h4 class="perf-cert-name">잔류농약 463종</h4>
+                        <p class="perf-cert-org">강원대 친환경농산물안전성센터</p>
+                        <p class="perf-cert-date">2026.02.25</p>
+                        <span class="perf-cert-id">EFAP-26-0359-P</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
         <section class="section cta-section">
             <div class="container">
                 <div class="cta-box">
@@ -192,30 +459,30 @@
             </div>
         </section>
     </main>
-    
+
     <footer class="footer">
         <div class="container">
             <div class="footer__content">
-                <div class="footer__logo">SM<span class="footer__logo-gm">GM</span>™</div>
-                <p class="footer__tagline">SMGM의 CORElite-G(e)은 지속가능한 지구의 내일에 기여합니다.</p>
+                <div class="footer__logo">SM<span class="footer__logo-gm">GM</span>&trade;</div>
+                <p class="footer__tagline">SMGM의 CORElite-G는 지속가능한 지구의 내일에 기여합니다.</p>
             </div>
             <div class="footer__copyright">
-                <div class="footer__copyright-row">© 2025 주식회사 에스엠골드마인 (SMGM). All rights reserved. 사업자등록번호: 702-86-03387 | 대표: 박수운</div>
+                <div class="footer__copyright-row">&copy; 2025 주식회사 에스엠골드마인 (SMGM). All rights reserved. 사업자등록번호: 702-86-03387 | 대표: 박수운</div>
                 <div class="footer__legal">All content including text, images, design, and logos are protected by copyright law. Unauthorized reproduction, distribution, or derivative works are strictly prohibited.</div>
             </div>
         </div>
     </footer>
-    
-    <div id="contactModal" class="modal">
+
+    <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
         <div class="modal__content">
             <div class="modal__header">
-                <h2 class="modal__title">Contact</h2>
+                <h2 class="modal__title" id="contactModalTitle">Contact</h2>
                 <span class="modal__close">&times;</span>
             </div>
             <form id="contactForm" class="modal__form">
-                <div class="form__group"><label for="name" class="form__label">이름 / 담당자</label><input type="text" id="name" class="form__input" required></div>
-                <div class="form__group"><label for="email" class="form__label">이메일</label><input type="email" id="email" class="form__input" required></div>
-                <div class="form__group"><label for="phone" class="form__label">연락처</label><input type="tel" id="phone" class="form__input" required></div>
+                <div class="form__group"><label for="name" class="form__label">이름 / 담당자</label><input type="text" id="name" class="form__input" required><p class="form__error-text"></p></div>
+                <div class="form__group"><label for="email" class="form__label">이메일</label><input type="email" id="email" class="form__input" required><p class="form__error-text"></p></div>
+                <div class="form__group"><label for="phone" class="form__label">연락처</label><input type="tel" id="phone" class="form__input" required><p class="form__error-text"></p></div>
                 <div class="form__group">
                     <label for="solution" class="form__label">관심 솔루션</label>
                     <select id="solution" class="form__select" required>
@@ -227,13 +494,14 @@
                         <option value="GaiaCure-G">GaiaCure-G (흙살림e지)</option>
                         <option value="기타">기타</option>
                     </select>
+                    <p class="form__error-text"></p>
                 </div>
-                <div class="form__group"><label for="message" class="form__label">문의 내용</label><textarea id="message" class="form__textarea" rows="5" required></textarea><span class="form__placeholder">프로젝트 규모, 예상 일정, 기타 문의사항을 자유롭게 작성해주세요.</span></div>
+                <div class="form__group"><label for="message" class="form__label">문의 내용</label><textarea id="message" class="form__textarea" rows="5" required></textarea><p class="form__error-text"></p><span class="form__placeholder">프로젝트 규모, 예상 일정, 기타 문의사항을 자유롭게 작성해주세요.</span></div>
                 <button type="submit" class="form__submit">Touch Us</button>
             </form>
         </div>
     </div>
-    
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>

@@ -28,6 +28,9 @@
         <button class="admin-tab active" data-tab="news">뉴스 관리</button>
         <button class="admin-tab" data-tab="contacts">문의 관리 <span class="admin-tab__badge" id="contactBadge" style="display:none;">0</span></button>
         <button class="admin-tab" data-tab="popups">팝업 관리</button>
+        <button class="admin-tab" data-tab="density">물량 설정</button>
+        <button class="admin-tab" data-tab="projects">시공 사례</button>
+        <button class="admin-tab" data-tab="certs">성적서</button>
     </div>
 
     <!-- Main Content -->
@@ -110,6 +113,90 @@
                         </tr>
                     </thead>
                     <tbody id="popupTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== DENSITY PANEL ========== -->
+        <div id="panel-density" class="admin-panel">
+            <div class="admin-toolbar">
+                <h2 class="admin-toolbar__title">솔루션별 무게비중 설정</h2>
+            </div>
+            <div class="admin-card-form" id="densityForm">
+                <div class="admin-density-grid">
+                    <div class="admin-form-group">
+                        <label for="densitySoilAroma">SoilAroma-G</label>
+                        <input type="number" id="densitySoilAroma" step="0.01" min="0" value="1.60">
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="densityEcoRide">EcoRide-G</label>
+                        <input type="number" id="densityEcoRide" step="0.01" min="0" value="1.60">
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="densityTechLane">TechLane-G</label>
+                        <input type="number" id="densityTechLane" step="0.01" min="0" value="1.60">
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="densityEcoField">EcoField-G</label>
+                        <input type="number" id="densityEcoField" step="0.01" min="0" value="1.60">
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="densityGaiaCure">GaiaCure-G</label>
+                        <input type="number" id="densityGaiaCure" step="0.01" min="0" value="1.60">
+                    </div>
+                </div>
+                <div class="admin-form-actions">
+                    <button class="btn btn-primary" id="saveDensityBtn">저장</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PROJECTS PANEL ========== -->
+        <div id="panel-projects" class="admin-panel">
+            <div class="admin-toolbar">
+                <h2 class="admin-toolbar__title">시공 사례 관리</h2>
+                <button class="btn btn-primary" id="addProjectBtn">+ 새 시공 사례</button>
+            </div>
+            <div id="projectEmpty" class="admin-empty" style="display:none;">
+                <div class="admin-empty__icon">🏗️</div>
+                <p class="admin-empty__text">등록된 시공 사례가 없습니다.<br>첫 번째 사례를 추가해보세요.</p>
+            </div>
+            <div class="admin-table-wrap project-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>프로젝트명</th>
+                            <th>솔루션</th>
+                            <th class="hide-mobile">위치</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projectTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== CERTIFICATES PANEL ========== -->
+        <div id="panel-certs" class="admin-panel">
+            <div class="admin-toolbar">
+                <h2 class="admin-toolbar__title">성적서 관리</h2>
+                <button class="btn btn-primary" id="addCertBtn">+ 새 성적서</button>
+            </div>
+            <div id="certEmpty" class="admin-empty" style="display:none;">
+                <div class="admin-empty__icon">📋</div>
+                <p class="admin-empty__text">등록된 성적서가 없습니다.<br>첫 번째 성적서를 추가해보세요.</p>
+            </div>
+            <div class="admin-table-wrap cert-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>성적서명</th>
+                            <th>기관</th>
+                            <th class="hide-mobile">발급일</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody id="certTableBody"></tbody>
                 </table>
             </div>
         </div>
@@ -201,6 +288,100 @@
                         <input type="checkbox" id="popupIsActive" checked>
                         활성 상태
                     </label>
+                </div>
+                <div class="admin-form-actions">
+                    <button type="button" class="btn btn-secondary admin-modal__close">취소</button>
+                    <button type="submit" class="btn btn-primary">저장</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== PROJECT MODAL ========== -->
+    <div id="projectModal" class="admin-modal">
+        <div class="admin-modal__content">
+            <div class="admin-modal__header">
+                <h3 class="admin-modal__title" id="projectModalTitle">시공 사례 추가</h3>
+                <button class="admin-modal__close">&times;</button>
+            </div>
+            <form id="projectForm">
+                <div class="admin-form-group">
+                    <label for="projectTitle">프로젝트명</label>
+                    <input type="text" id="projectTitle" required placeholder="예: 포천시 맨발걷기길">
+                </div>
+                <div class="admin-form-group">
+                    <label for="projectLocation">위치</label>
+                    <input type="text" id="projectLocation" placeholder="예: 경기도 포천시">
+                </div>
+                <div class="admin-form-group">
+                    <label for="projectSolution">솔루션</label>
+                    <select id="projectSolution" required>
+                        <option value="SoilAroma-G">SoilAroma-G</option>
+                        <option value="EcoRide-G">EcoRide-G</option>
+                        <option value="TechLane-G">TechLane-G</option>
+                        <option value="EcoField-G">EcoField-G</option>
+                        <option value="GaiaCure-G">GaiaCure-G</option>
+                    </select>
+                </div>
+                <div class="admin-form-group">
+                    <label for="projectClient">발주처</label>
+                    <input type="text" id="projectClient" placeholder="예: 중랑구청">
+                </div>
+                <div class="admin-form-group">
+                    <label for="projectResult">시공 결과 (1줄 설명)</label>
+                    <textarea id="projectResult" rows="2" placeholder="CORElite-G 적용 맨발걷기길 조성 완료."></textarea>
+                </div>
+                <div class="admin-form-group">
+                    <label for="projectImageUrl">시공 사진 경로/URL</label>
+                    <input type="text" id="projectImageUrl" placeholder="포천 시공사진/photo.jpeg 또는 https://...">
+                </div>
+                <div class="admin-form-group">
+                    <label for="projectOrder">정렬 순서 (낮을수록 먼저)</label>
+                    <input type="number" id="projectOrder" value="0" min="0">
+                </div>
+                <div class="admin-form-actions">
+                    <button type="button" class="btn btn-secondary admin-modal__close">취소</button>
+                    <button type="submit" class="btn btn-primary">저장</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== CERTIFICATE MODAL ========== -->
+    <div id="certModal" class="admin-modal">
+        <div class="admin-modal__content">
+            <div class="admin-modal__header">
+                <h3 class="admin-modal__title" id="certModalTitle">성적서 추가</h3>
+                <button class="admin-modal__close">&times;</button>
+            </div>
+            <form id="certForm">
+                <div class="admin-form-group">
+                    <label for="certTitle">성적서명</label>
+                    <input type="text" id="certTitle" required placeholder="예: XRD 정량분석">
+                </div>
+                <div class="admin-form-group">
+                    <label for="certTag">분류 태그</label>
+                    <input type="text" id="certTag" placeholder="예: 광물 조성 분석, 안전성 시험">
+                </div>
+                <div class="admin-form-group">
+                    <label for="certInstitute">시험기관</label>
+                    <input type="text" id="certInstitute" required placeholder="예: 한국지질자원연구원 (KIGAM)">
+                </div>
+                <div class="admin-form-group">
+                    <label for="certDate">발급일</label>
+                    <input type="date" id="certDate" required>
+                </div>
+                <div class="admin-form-group">
+                    <label for="certDesc">성적서 설명</label>
+                    <textarea id="certDesc" rows="2" placeholder="일라이트 39.8%, 석영 32.0% 등 6개 광물 정량 분석"></textarea>
+                </div>
+                <div class="admin-form-group">
+                    <label for="certImageUrl">성적서 이미지 경로/URL</label>
+                    <input type="text" id="certImageUrl" required placeholder="img-certs/xrd.png 또는 https://...">
+                </div>
+                <div class="admin-form-group">
+                    <label for="certOrder">정렬 순서 (낮을수록 먼저)</label>
+                    <input type="number" id="certOrder" value="0" min="0">
                 </div>
                 <div class="admin-form-actions">
                     <button type="button" class="btn btn-secondary admin-modal__close">취소</button>
