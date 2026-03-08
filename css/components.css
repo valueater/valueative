@@ -40,13 +40,14 @@
 
 /* Logo */
 .nav__logo {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
 }
 
-.nav__logo-gm {
-    color: var(--color-red);
+.nav__logo-img {
+    height: 48px;
+    width: auto;
+    display: block;
 }
 
 /* Navigation Menu */
@@ -222,10 +223,11 @@
     font-size: 28px;
     font-weight: 700;
     margin-bottom: var(--spacing-md);
+    color: #ffffff;
 }
 
 .footer__logo-gm {
-    color: var(--color-red);
+    color: var(--color-terracotta);
 }
 
 .footer__tagline {
